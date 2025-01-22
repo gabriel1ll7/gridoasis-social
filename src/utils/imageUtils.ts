@@ -1,6 +1,10 @@
 export const getValidImageUrl = (url: string): string => {
+  // Log the incoming URL for debugging
+  console.log('Processing URL:', url);
+
   // If the URL is empty or undefined, return placeholder
   if (!url) {
+    console.warn('Empty URL received');
     return '/placeholder.svg';
   }
 

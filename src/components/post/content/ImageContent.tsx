@@ -19,7 +19,8 @@ export const ImageContent = ({ content }: ImageContentProps) => {
           target.onerror = null; // Prevent infinite error loop
           console.error('Image failed to load:', {
             originalUrl: content,
-            processedUrl: imageUrl
+            processedUrl: imageUrl,
+            error: e
           });
           target.src = '/placeholder.svg'; // Fallback to placeholder
         }}
