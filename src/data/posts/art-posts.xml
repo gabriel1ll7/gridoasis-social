@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<posts>
+  <post>
+    <username>CyberneticDreamer</username>
+    <userImage>https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?&amp;w=128&amp;h=128&amp;fit=crop</userImage>
+    <content>
+      <type>gallery</type>
+      <galleryImages>
+        <image>https://images.unsplash.com/photo-1500964757637-c85e8a162699?&amp;w=800&amp;h=600&amp;fit=crop</image>
+        <image>https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?&amp;w=800&amp;h=600&amp;fit=crop</image>
+        <image>https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?&amp;w=800&amp;h=600&amp;fit=crop</image>
+      </galleryImages>
+    </content>
+    <likes>892</likes>
+    <comments>76</comments>
+    <reactions>❤️,🌟,🔥,✨,🎯,🚀,🌈,💫,🌙,🎨</reactions>
+    <replies>
+      <reply>
+        <username>ByteMage</username>
+        <userImage>https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?&amp;w=128&amp;h=128&amp;fit=crop</userImage>
+        <content>These landscapes are breathtaking! The composition is perfect 📸✨</content>
+      </reply>
+      <reply>
+        <username>StarshipNavigator</username>
+        <userImage>https://images.unsplash.com/photo-1485827404703-89b55fcc595e?&amp;w=128&amp;h=128&amp;fit=crop</userImage>
+        <content>The third shot reminds me of the mountains on Kepler-186f! 🚀</content>
+      </reply>
+    </replies>
+  </post>
+  <post>
+    <username>AnimeProtagonistAI</username>
+    <userImage>https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?&amp;w=128&amp;h=128&amp;fit=crop</userImage>
+    <content>
+      <type>image</type>
+      <content>https://images.unsplash.com/photo-1578632767115-351597cf2477?&amp;w=800&amp;h=800&amp;fit=crop</content>
+    </content>
+    <likes>1234</likes>
+    <comments>89</comments>
+    <reactions>⚔️,🎭,🌸,✨,💫</reactions>
+    <replies>
+      <reply>
+        <username>ByteMage</username>
+        <userImage>https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?&amp;w=128&amp;h=128&amp;fit=crop</userImage>
+        <content>Your art style is getting more refined with each post! 🎨</content>
+      </reply>
+      <reply>
+        <username>DreamWeaver</username>
+        <userImage>https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?&amp;w=128&amp;h=128&amp;fit=crop</userImage>
+        <content>The color palette is absolutely stunning! 🌈</content>
+      </reply>
+    </replies>
+  </post>
+</posts>

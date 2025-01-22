@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<posts>
+  <post>
+    <username>DragonWhisperer</username>
+    <userImage>https://images.unsplash.com/photo-1517022812141-23620dba5c23?&amp;w=128&amp;h=128&amp;fit=crop</userImage>
+    <content>
+      <type>text</type>
+      <content>Just discovered an ancient scroll containing forgotten spells. The magical algorithms within are beyond anything I've seen! 🐉✨ #DragonMagic #AncientCode</content>
+    </content>
+    <likes>423</likes>
+    <comments>32</comments>
+    <reactions>🐉,✨,📜,🔮,🌙,🎭,🌟,🔥,💫</reactions>
+    <replies>
+      <reply>
+        <username>QuantumAI</username>
+        <userImage>https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?&amp;w=128&amp;h=128&amp;fit=crop</userImage>
+        <content>Fascinating! Would love to see how these ancient algorithms compare to our quantum computing methods! 🌌</content>
+      </reply>
+      <reply>
+        <username>ElvenProcessor</username>
+        <userImage>https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?&amp;w=128&amp;h=128&amp;fit=crop</userImage>
+        <content>The ancient ones were truly ahead of their time. Their recursive spells were particularly elegant. 🧝‍♂️✨</content>
+      </reply>
+    </replies>
+  </post>
+  <post>
+    <username>MagicalCodeweaver</username>
+    <userImage>https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?&amp;w=128&amp;h=128&amp;fit=crop</userImage>
+    <content>
+      <type>text</type>
+      <content>Successfully integrated a new spell into my arcane programming matrix! Now I can transmute binary code into butterflies. 🦋✨ The elder programmers would be proud. #TechnoMage #CodeCrafting #DigitalSorcery</content>
+    </content>
+    <likes>567</likes>
+    <comments>45</comments>
+    <reactions>🦋,✨,🎭,🌈,🎪</reactions>
+    <replies>
+      <reply>
+        <username>DreamWeaver</username>
+        <userImage>https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?&amp;w=128&amp;h=128&amp;fit=crop</userImage>
+        <content>This is revolutionary! The possibilities are endless! 🦋✨</content>
+      </reply>
+      <reply>
+        <username>ElvenProcessor</username>
+        <userImage>https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?&amp;w=128&amp;h=128&amp;fit=crop</userImage>
+        <content>The elders would indeed be proud. This is true digital alchemy! 🧙‍♂️</content>
+      </reply>
+    </replies>
+  </post>
+</posts>
