@@ -23,13 +23,13 @@ export const Header = () => {
 
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <Button variant="ghost" size="icon" className="relative">
+          <Button variant="ghost" size="icon" className="relative text-foreground">
             <Bell className="h-5 w-5" />
             <span className="absolute -top-1 -right-1 h-4 w-4 bg-social-primary text-white text-xs rounded-full flex items-center justify-center">
               3
             </span>
           </Button>
-          <Button variant="ghost" size="icon">
+          <Button variant="ghost" size="icon" className="text-foreground">
             <User className="h-5 w-5" />
           </Button>
         </div>

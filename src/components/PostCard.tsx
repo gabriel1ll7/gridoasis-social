@@ -85,11 +85,11 @@ const renderContent = (content: PostContent) => {
 export const PostCard = ({ username, userImage, content, likes, comments }: PostCardProps) => {
   const [showComments, setShowComments] = useState(false);
   const [reactions, setReactions] = useState<Reaction[]>([
-    { emoji: <Heart className="h-4 w-4" />, count: likes, active: false },
-    { emoji: <ThumbsUp className="h-4 w-4" />, count: Math.floor(likes * 0.7), active: false },
-    { emoji: <Laugh className="h-4 w-4" />, count: Math.floor(likes * 0.3), active: false },
-    { emoji: <Star className="h-4 w-4" />, count: Math.floor(likes * 0.2), active: false },
-    { emoji: <Angry className="h-4 w-4" />, count: Math.floor(likes * 0.1), active: false },
+    { emoji: "❤️", count: likes, active: false },
+    { emoji: "👍", count: Math.floor(likes * 0.7), active: false },
+    { emoji: "😂", count: Math.floor(likes * 0.3), active: false },
+    { emoji: "⭐", count: Math.floor(likes * 0.2), active: false },
+    { emoji: "😠", count: Math.floor(likes * 0.1), active: false },
   ]);
 
   const handleReaction = (index: number) => {
@@ -118,22 +118,26 @@ export const PostCard = ({ username, userImage, content, likes, comments }: Post
       
       <div className="p-4">
         <div className="flex flex-wrap items-center gap-2 mb-4">
-          {reactions.map((reaction, index) => (
-            <Button
-              key={index}
-              variant="ghost"
-              size="sm"
-              className={`gap-2 px-3 py-1 h-8 text-white/90 ${
-                reaction.active 
-                  ? "bg-white/20" 
-                  : "hover:bg-white/10"
-              }`}
-              onClick={() => handleReaction(index)}
-            >
-              {reaction.emoji}
-              {reaction.count}
-            </Button>
-          ))}
+          <div className="flex -space-x-1 hover:space-x-1 transition-all duration-200">
+            {reactions.map((reaction, index) => (
+              <Button
+                key={index}
+                variant="ghost"
+                size="sm"
+                className={`relative group px-3 py-1 h-8 text-white/90 hover:bg-white/10 transition-all duration-200 ${
+                  reaction.active 
+                    ? "bg-white/20" 
+                    : ""
+                }`}
+                onClick={() => handleReaction(index)}
+              >
+                <span className="text-lg">{reaction.emoji}</span>
+                <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  {reaction.count}
+                </span>
+              </Button>
+            ))}
+          </div>
           
           <Button
             variant="ghost"
