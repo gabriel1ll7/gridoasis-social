@@ -31,19 +31,12 @@ const parsePostXml = (postElement: Element): Post => {
 
 export const parsePostsXml = async (): Promise<Post[]> => {
   try {
+    const response = await fetch('/src/data/posts/posts.xml');
+    const xmlText = await response.text();
     const parser = new DOMParser();
-    const postFiles = ['tech-posts.xml', 'art-posts.xml', 'science-posts.xml'];
-    
-    const postsPromises = postFiles.map(async (filename) => {
-      const response = await fetch(`/src/data/posts/${filename}`);
-      const xmlText = await response.text();
-      const xmlDoc = parser.parseFromString(xmlText, "text/xml");
-      const posts = xmlDoc.getElementsByTagName("post");
-      return Array.from(posts).map(parsePostXml);
-    });
-
-    const allPosts = await Promise.all(postsPromises);
-    return allPosts.flat();
+    const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+    const posts = xmlDoc.getElementsByTagName("post");
+    return Array.from(posts).map(parsePostXml);
   } catch (error) {
     console.error('Error parsing posts:', error);
     return [];
