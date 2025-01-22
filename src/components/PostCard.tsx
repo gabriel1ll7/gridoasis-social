@@ -3,17 +3,80 @@ import { Heart, MessageSquare, Share } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+
+type PostContent = {
+  type: 'text' | 'image' | 'gallery' | 'video' | 'youtube';
+  content: string;
+  galleryImages?: string[];
+};
 
 interface PostCardProps {
   username: string;
   userImage: string;
-  postImage: string;
-  content: string;
+  content: PostContent;
   likes: number;
   comments: number;
 }
 
-export const PostCard = ({ username, userImage, postImage, content, likes, comments }: PostCardProps) => {
+const renderContent = (content: PostContent) => {
+  switch (content.type) {
+    case 'text':
+      return <p className="text-sm text-card-foreground">{content.content}</p>;
+    
+    case 'image':
+      return (
+        <img 
+          src={content.content} 
+          alt="Post content" 
+          className="w-full aspect-square object-cover"
+        />
+      );
+    
+    case 'gallery':
+      return (
+        <Carousel className="w-full">
+          <CarouselContent>
+            {content.galleryImages?.map((image, index) => (
+              <CarouselItem key={index}>
+                <img 
+                  src={image} 
+                  alt={`Gallery image ${index + 1}`} 
+                  className="w-full aspect-square object-cover"
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      );
+    
+    case 'video':
+      return (
+        <video 
+          controls 
+          className="w-full aspect-video"
+          src={content.content}
+        />
+      );
+    
+    case 'youtube':
+      return (
+        <iframe
+          className="w-full aspect-video"
+          src={`https://www.youtube.com/embed/${content.content}`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      );
+    
+    default:
+      return null;
+  }
+};
+
+export const PostCard = ({ username, userImage, content, likes, comments }: PostCardProps) => {
   const [isLiked, setIsLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(likes);
   const [showComments, setShowComments] = useState(false);
@@ -32,7 +95,9 @@ export const PostCard = ({ username, userImage, postImage, content, likes, comme
         <span className="font-medium">{username}</span>
       </div>
       
-      <img src={postImage} alt="Post content" className="w-full aspect-square object-cover" />
+      <div className="relative">
+        {renderContent(content)}
+      </div>
       
       <div className="p-4">
         <div className="flex items-center gap-4 mb-4">
@@ -60,8 +125,6 @@ export const PostCard = ({ username, userImage, postImage, content, likes, comme
             <Share className="h-5 w-5" />
           </Button>
         </div>
-
-        <p className="text-sm text-card-foreground">{content}</p>
 
         {showComments && (
           <>
