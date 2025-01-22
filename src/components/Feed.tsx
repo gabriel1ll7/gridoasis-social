@@ -51,9 +51,11 @@ const MOCK_POSTS = [
 export const Feed = () => {
   return (
     <div className="container mx-auto px-4 py-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="columns-1 md:columns-2 lg:columns-3 gap-6 [column-fill:_balance] w-full">
         {MOCK_POSTS.map((post, index) => (
-          <PostCard key={index} {...post} />
+          <div key={index} className="break-inside-avoid mb-6">
+            <PostCard {...post} />
+          </div>
         ))}
       </div>
     </div>

@@ -29,7 +29,7 @@ const renderContent = (content: PostContent) => {
         <img 
           src={content.content} 
           alt="Post content" 
-          className="w-full aspect-square object-cover"
+          className="w-full h-auto object-cover"
         />
       );
     
@@ -42,7 +42,7 @@ const renderContent = (content: PostContent) => {
                 <img 
                   src={image} 
                   alt={`Gallery image ${index + 1}`} 
-                  className="w-full aspect-square object-cover"
+                  className="w-full h-auto object-cover"
                 />
               </CarouselItem>
             ))}
@@ -56,7 +56,7 @@ const renderContent = (content: PostContent) => {
       return (
         <video 
           controls 
-          className="w-full aspect-video"
+          className="w-full h-auto"
           src={content.content}
         />
       );
