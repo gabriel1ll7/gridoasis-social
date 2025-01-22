@@ -18,10 +18,10 @@ interface PostCardProps {
   content: PostContent;
   likes: number;
   comments: number;
-  reactions: string[];
+  reactions?: string[];
 }
 
-export const PostCard = ({ username, userImage, content, likes, comments, reactions }: PostCardProps) => {
+export const PostCard = ({ username, userImage, content, likes, comments, reactions = [] }: PostCardProps) => {
   const [showComments, setShowComments] = useState(false);
   const [reactionCounts, setReactionCounts] = useState<Record<string, number>>(
     Object.fromEntries(reactions.map(emoji => [emoji, Math.floor(likes / reactions.length)]))
