@@ -3,7 +3,7 @@ import { Post } from '@/types/post';
 export const MOCK_POSTS: Post[] = [
   {
     username: "CyberneticDreamer",
-    userImage: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?&w=128&h=128&fit=crop",
+    userImage: "https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?&w=128&h=128&fit=crop",
     content: {
       type: "gallery",
       content: "",
@@ -109,5 +109,27 @@ export const MOCK_POSTS: Post[] = [
     likes: 777,
     comments: 42,
     reactions: ["⏰", "🕰️", "🌀", "💫", "🎭"]
+  },
+  {
+    username: "DreamWeaver",
+    userImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?&w=128&h=128&fit=crop",
+    content: {
+      type: "text",
+      content: "Just finished weaving a new dreamscape algorithm. Now your digital dreams can have infinite resolution! 🌌✨ #DreamTech #DigitalDreams",
+    },
+    likes: 456,
+    comments: 34,
+    reactions: ["🌌", "✨", "💭", "🎆", "🌟"]
+  },
+  {
+    username: "ByteMage",
+    userImage: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?&w=128&h=128&fit=crop",
+    content: {
+      type: "image",
+      content: "https://images.unsplash.com/photo-1582562124811-c09040d0a901?&w=800&h=800&fit=crop",
+    },
+    likes: 789,
+    comments: 56,
+    reactions: ["🔮", "💻", "✨", "🎭", "🌟"]
   }
 ];

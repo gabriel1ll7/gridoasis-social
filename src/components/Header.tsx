@@ -14,10 +14,10 @@ export const Header = () => {
         <div className="flex-1 max-w-xl mx-4">
           <div className="flex items-center gap-3 bg-muted/50 rounded-full px-4 py-2 cursor-pointer hover:bg-muted/70 transition-colors">
             <Avatar className="h-8 w-8">
-              <AvatarImage src="/placeholder.svg" />
-              <AvatarFallback>U</AvatarFallback>
+              <AvatarImage src="https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?&w=128&h=128&fit=crop" />
+              <AvatarFallback>CD</AvatarFallback>
             </Avatar>
-            <span className="text-muted-foreground text-sm">What's happening?</span>
+            <span className="text-muted-foreground text-sm">Share your dreams...</span>
           </div>
         </div>
 
