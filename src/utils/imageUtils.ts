@@ -8,21 +8,19 @@ export const getValidImageUrl = (url: string): string => {
     return '/placeholder.svg';
   }
 
-  // Remove any whitespace, newlines, and tabs
-  const cleanUrl = url.replace(/[\n\r\t\s]+/g, '').trim();
-  
+  // URL is already clean at this point since we cleaned it in the XML parser
   // If it's already a valid URL, return it
-  if (cleanUrl.startsWith('http')) {
-    console.log('Valid URL found:', cleanUrl);
-    return cleanUrl;
+  if (url.startsWith('http')) {
+    console.log('Valid URL found:', url);
+    return url;
   }
   
   // If it's a relative path, prepend with /images/
-  if (!cleanUrl.startsWith('/')) {
-    const fullPath = `/images/${cleanUrl}`;
+  if (!url.startsWith('/')) {
+    const fullPath = `/images/${url}`;
     console.log('Converting to full path:', fullPath);
     return fullPath;
   }
   
-  return cleanUrl;
+  return url;
 };
