@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Heart, MessageSquare, Share } from "lucide-react";
+import { MessageCircle, Share, Heart, ThumbsUp, Laugh, Angry, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
@@ -19,10 +19,16 @@ interface PostCardProps {
   comments: number;
 }
 
+type Reaction = {
+  emoji: JSX.Element;
+  count: number;
+  active: boolean;
+};
+
 const renderContent = (content: PostContent) => {
   switch (content.type) {
     case 'text':
-      return <p className="text-sm text-card-foreground">{content.content}</p>;
+      return <p className="text-sm text-card-foreground p-6">{content.content}</p>;
     
     case 'image':
       return (
@@ -77,19 +83,28 @@ const renderContent = (content: PostContent) => {
 };
 
 export const PostCard = ({ username, userImage, content, likes, comments }: PostCardProps) => {
-  const [isLiked, setIsLiked] = useState(false);
-  const [likesCount, setLikesCount] = useState(likes);
   const [showComments, setShowComments] = useState(false);
+  const [reactions, setReactions] = useState<Reaction[]>([
+    { emoji: <Heart className="h-4 w-4" />, count: likes, active: false },
+    { emoji: <ThumbsUp className="h-4 w-4" />, count: Math.floor(likes * 0.7), active: false },
+    { emoji: <Laugh className="h-4 w-4" />, count: Math.floor(likes * 0.3), active: false },
+    { emoji: <Star className="h-4 w-4" />, count: Math.floor(likes * 0.2), active: false },
+    { emoji: <Angry className="h-4 w-4" />, count: Math.floor(likes * 0.1), active: false },
+  ]);
 
-  const handleLike = () => {
-    setIsLiked(!isLiked);
-    setLikesCount(isLiked ? likesCount - 1 : likesCount + 1);
+  const handleReaction = (index: number) => {
+    setReactions(prev => prev.map((reaction, i) => {
+      if (i === index) {
+        return { ...reaction, count: reaction.active ? reaction.count - 1 : reaction.count + 1, active: !reaction.active };
+      }
+      return reaction;
+    }));
   };
 
   return (
     <div className="bg-card rounded-lg overflow-hidden shadow-md animate-fade-in">
       <div className="p-4 flex items-center gap-3">
-        <Avatar className="h-8 w-8">
+        <Avatar className="h-12 w-12">
           <img src={userImage} alt={username} className="object-cover" />
         </Avatar>
         <span className="font-medium">{username}</span>
@@ -100,25 +115,28 @@ export const PostCard = ({ username, userImage, content, likes, comments }: Post
       </div>
       
       <div className="p-4">
-        <div className="flex items-center gap-4 mb-4">
-          <Button
-            variant="ghost"
-            size="sm"
-            className={`gap-2 ${isLiked ? "text-social-primary" : ""}`}
-            onClick={handleLike}
-          >
-            <Heart className={`h-5 w-5 ${isLiked ? "fill-current" : ""}`} />
-            {likesCount}
-          </Button>
+        <div className="flex flex-wrap items-center gap-2 mb-4">
+          {reactions.map((reaction, index) => (
+            <Button
+              key={index}
+              variant="ghost"
+              size="sm"
+              className={`gap-2 px-3 py-1 h-8 ${reaction.active ? "bg-accent text-accent-foreground" : ""}`}
+              onClick={() => handleReaction(index)}
+            >
+              {reaction.emoji}
+              {reaction.count}
+            </Button>
+          ))}
           
           <Button
             variant="ghost"
             size="sm"
-            className="gap-2"
+            className="gap-2 ml-auto"
             onClick={() => setShowComments(!showComments)}
           >
-            <MessageSquare className="h-5 w-5" />
-            {comments}
+            <MessageCircle className="h-5 w-5" />
+            Reply
           </Button>
           
           <Button variant="ghost" size="sm" className="gap-2">
@@ -131,7 +149,7 @@ export const PostCard = ({ username, userImage, content, likes, comments }: Post
             <Separator className="my-4" />
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <Avatar className="h-8 w-8">
+                <Avatar className="h-12 w-12">
                   <img src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&fit=crop&crop=face" alt="commenter" className="object-cover" />
                 </Avatar>
                 <div className="flex-1 bg-muted p-3 rounded-lg">
