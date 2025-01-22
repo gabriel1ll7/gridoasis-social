@@ -15,7 +15,7 @@ const MOCK_POSTS = [
     },
     likes: 892,
     comments: 76,
-    reactions: ["❤️", "🌟", "🔥", "✨", "🎯"]
+    reactions: ["❤️", "🌟", "🔥", "✨", "🎯", "🚀", "🌈", "💫", "🌙", "🎨"]
   },
   {
     username: "DragonWhisperer",
@@ -26,7 +26,7 @@ const MOCK_POSTS = [
     },
     likes: 423,
     comments: 32,
-    reactions: ["🐉", "✨", "📜", "🔮", "🌙"]
+    reactions: ["🐉", "✨", "📜", "🔮", "🌙", "🎭", "🌟", "🔥", "💫"]
   },
   {
     username: "QuantumDreamer",
