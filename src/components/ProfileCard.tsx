@@ -30,12 +30,12 @@ export const ProfileCard = () => {
         
         <div className="flex justify-center gap-12 mb-6">
           <div>
-            <p className="text-xl font-semibold text-white">6,664</p>
-            <p className="text-sm text-muted-foreground">Following</p>
+            <p className="text-xl font-semibold text-white">42</p>
+            <p className="text-sm text-muted-foreground">Posts</p>
           </div>
           <div>
-            <p className="text-xl font-semibold text-white">9,991</p>
-            <p className="text-sm text-muted-foreground">Followers</p>
+            <p className="text-xl font-semibold text-white">1.2k</p>
+            <p className="text-sm text-muted-foreground">Reactions</p>
           </div>
         </div>
         
