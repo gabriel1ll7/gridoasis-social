@@ -43,7 +43,7 @@ export const PostReactions = ({ reactions }: PostReactionsProps) => {
         <button
           key={index}
           onClick={() => handleReaction(emoji)}
-          className={`relative group hover:scale-125 transition-transform duration-200 ${
+          className={`relative group hover:scale-150 transition-transform duration-200 ${
             userReactions[emoji] ? "scale-110" : ""
           }`}
         >
