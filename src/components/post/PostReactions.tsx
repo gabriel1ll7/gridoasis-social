@@ -5,39 +5,35 @@ interface PostReactionsProps {
   likes: number;
 }
 
-export const PostReactions = ({ reactions = [], likes }: PostReactionsProps) => {
-  const [reactionCounts, setReactionCounts] = useState<Record<string, number>>(() => {
-    const counts = reactions.reduce((acc, emoji) => {
-      acc[emoji] = Math.floor(likes / reactions.length);
-      return acc;
-    }, {} as Record<string, number>);
-    return counts;
-  });
-
-  const [userReactions, setUserReactions] = useState<Record<string, boolean>>(
-    Object.fromEntries(reactions.map(emoji => [emoji, false]))
+export const PostReactions = ({ reactions }: PostReactionsProps) => {
+  const [userReactions, setUserReactions] = useState<Record<string, boolean>>({});
+  const [reactionCounts, setReactionCounts] = useState<Record<string, number>>(
+    reactions.reduce((counts, emoji) => ({
+      ...counts,
+      [emoji]: Math.floor(Math.random() * 50) + 1,
+    }), {})
   );
 
   const handleReaction = (emoji: string) => {
+    setUserReactions(prev => {
+      const newReactions = { ...prev };
+      newReactions[emoji] = !prev[emoji];
+      return newReactions;
+    });
+
     setReactionCounts(prev => ({
       ...prev,
-      [emoji]: prev[emoji] + (userReactions[emoji] ? -1 : 1)
-    }));
-    setUserReactions(prev => ({
-      ...prev,
-      [emoji]: !prev[emoji]
+      [emoji]: prev[emoji] + (userReactions[emoji] ? -1 : 1),
     }));
   };
 
-  // Sort reactions by count and take top 5
-  const sortedReactions = [...reactions].sort((a, b) => reactionCounts[b] - reactionCounts[a]);
-  const displayedReactions = sortedReactions.slice(0, 5);
-  const remainingReactions = sortedReactions.slice(5);
+  const displayedReactions = reactions.slice(0, 3);
+  const remainingReactions = reactions.slice(3);
   const remainingReactionsCount = remainingReactions.length;
   const totalRemainingCount = remainingReactions.reduce((sum, emoji) => sum + reactionCounts[emoji], 0);
 
   return (
-    <div className="flex items-center gap-1">
+    <div className="flex items-center gap-0.5">
       {displayedReactions.map((emoji, index) => (
         <button
           key={index}
