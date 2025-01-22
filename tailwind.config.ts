@@ -56,9 +56,9 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         social: {
-          primary: "#6366f1",
-          secondary: "#818cf8",
-          accent: "#4f46e5",
+          primary: "#8B5CF6",
+          secondary: "#D946EF",
+          accent: "#0EA5E9",
         },
       },
       borderRadius: {
