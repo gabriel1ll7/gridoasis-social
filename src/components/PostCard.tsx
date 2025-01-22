@@ -11,7 +11,7 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
   const [showComments, setShowComments] = useState(false);
 
   return (
-    <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md rounded-lg overflow-hidden shadow-lg border border-white/10 animate-fade-in">
+    <div className="bg-gradient-to-br from-white/40 via-white/30 to-white/20 dark:from-white/10 dark:to-white/5 backdrop-blur-md rounded-lg overflow-hidden shadow-lg border border-white/20 dark:border-white/10 animate-fade-in">
       <PostHeader username={username} userImage={userImage} />
       
       <div className="relative">

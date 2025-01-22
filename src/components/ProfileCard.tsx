@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator";
 
 export const ProfileCard = () => {
   return (
-    <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md rounded-lg overflow-hidden shadow-lg border border-white/10 animate-fade-in">
+    <div className="bg-gradient-to-br from-white/40 via-white/30 to-white/20 dark:from-white/10 dark:to-white/5 backdrop-blur-md rounded-lg overflow-hidden shadow-lg border border-white/20 dark:border-white/10 animate-fade-in">
       <div className="relative h-32">
         <div className="absolute inset-0">
           <div className="w-full h-full bg-gradient-to-r from-social-primary/20 to-social-secondary/20 rounded-t-lg"></div>
