@@ -26,8 +26,8 @@ export const PostContent = ({ content }: PostContentProps) => {
     
     case 'gallery':
       const totalImages = content.galleryImages?.length || 0;
-      const displayImages = content.galleryImages?.slice(0, 4) || [];
-      const remainingImages = totalImages > 4 ? totalImages - 4 : 0;
+      const displayImages = content.galleryImages?.slice(0, totalImages === 3 ? 2 : 4) || [];
+      const remainingImages = totalImages === 3 ? 1 : (totalImages > 4 ? totalImages - 4 : 0);
 
       if (totalImages <= 1) {
         return (
@@ -44,15 +44,19 @@ export const PostContent = ({ content }: PostContentProps) => {
           {displayImages.map((image, index) => (
             <div 
               key={index} 
-              className={`relative ${index === 3 && remainingImages > 0 ? 'cursor-pointer' : ''}`}
+              className={`relative ${
+                (totalImages === 3 && index === 1) || (totalImages > 3 && index === 3) 
+                  ? 'cursor-pointer' 
+                  : ''
+              }`}
             >
               <img 
                 src={image} 
                 alt={`Gallery image ${index + 1}`} 
                 className="w-full h-full object-cover"
               />
-              {index === 3 && remainingImages > 0 && (
-                <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+              {((totalImages === 3 && index === 1) || (totalImages > 3 && index === 3)) && (
+                <div className="absolute inset-0 bg-black/70 flex items-center justify-center">
                   <span className="text-white text-2xl font-bold">+{remainingImages}</span>
                 </div>
               )}
