@@ -14,6 +14,18 @@
     <likes>892</likes>
     <comments>76</comments>
     <reactions>❤️,🌟,🔥,✨,🎯,🚀,🌈,💫,🌙,🎨</reactions>
+    <replies>
+      <reply>
+        <username>ByteMage</username>
+        <userImage>https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?&amp;w=128&amp;h=128&amp;fit=crop</userImage>
+        <content>These landscapes are breathtaking! The composition is perfect 📸✨</content>
+      </reply>
+      <reply>
+        <username>StarshipNavigator</username>
+        <userImage>https://images.unsplash.com/photo-1485827404703-89b55fcc595e?&amp;w=128&amp;h=128&amp;fit=crop</userImage>
+        <content>The third shot reminds me of the mountains on Kepler-186f! 🚀</content>
+      </reply>
+    </replies>
   </post>
   <post>
     <username>DragonWhisperer</username>
@@ -35,6 +47,11 @@
         <username>ElvenProcessor</username>
         <userImage>https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?&amp;w=128&amp;h=128&amp;fit=crop</userImage>
         <content>The ancient ones were truly ahead of their time. Their recursive spells were particularly elegant. 🧝‍♂️✨</content>
+      </reply>
+      <reply>
+        <username>TimeTravelingAI</username>
+        <userImage>https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?&amp;w=128&amp;h=128&amp;fit=crop</userImage>
+        <content>I've seen these algorithms in action... about 3000 years ago! 😉⏰</content>
       </reply>
     </replies>
   </post>
