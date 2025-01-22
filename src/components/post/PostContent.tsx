@@ -13,10 +13,12 @@ interface PostContentProps {
 export const PostContent = ({ content }: PostContentProps) => {
   // Helper function to get a valid image URL
   const getValidImageUrl = (url: string) => {
+    // Clean the URL by removing whitespace and newlines
+    const cleanUrl = url.trim();
     // If the URL is already a full URL, use it
-    if (url.startsWith('http')) return url;
+    if (cleanUrl.startsWith('http')) return cleanUrl;
     // Otherwise, assume it's a local image and use the public directory
-    return `/images/${url}`;
+    return `/images/${cleanUrl}`;
   };
 
   switch (content.type) {
@@ -24,9 +26,11 @@ export const PostContent = ({ content }: PostContentProps) => {
       return <p className="text-sm text-card-foreground px-6 py-4">{content.content}</p>;
     
     case 'image':
-      console.log('Single image content:', content); // Log the entire content object
       const imageUrl = getValidImageUrl(content.content);
-      console.log('Processed image URL:', imageUrl); // Log the processed URL
+      console.log('Processing image:', {
+        originalContent: content.content,
+        cleanedUrl: imageUrl
+      });
       
       return (
         <div className="w-full aspect-square">
@@ -36,8 +40,8 @@ export const PostContent = ({ content }: PostContentProps) => {
             className="w-full h-full object-cover"
             onError={(e) => {
               console.error('Image failed to load:', {
-                originalSrc: content.content,
-                processedSrc: imageUrl,
+                originalContent: content.content,
+                cleanedUrl: imageUrl,
                 error: e
               });
             }}
