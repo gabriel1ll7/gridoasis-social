@@ -41,6 +41,10 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
     }));
   };
 
+  // Take only the first 6 emojis
+  const displayedReactions = reactions.slice(0, 6);
+  const remainingCount = Math.max(0, reactions.length - 6);
+
   return (
     <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md rounded-lg overflow-hidden shadow-lg border border-white/10 animate-fade-in">
       <PostHeader username={username} userImage={userImage} />
@@ -51,13 +55,13 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
       
       <div className="p-4">
         <div className="flex flex-wrap items-center gap-2 mb-4">
-          <div className="flex -space-x-1 hover:space-x-1 transition-all duration-200">
-            {reactions.map((emoji, index) => (
+          <div className="flex gap-2">
+            {displayedReactions.map((emoji, index) => (
               <Button
                 key={index}
                 variant="ghost"
                 size="sm"
-                className={`relative group px-3 py-1 h-8 text-white/90 hover:bg-white/10 transition-all duration-200 ${
+                className={`px-3 py-1 h-8 text-white/90 hover:bg-white/10 transition-all duration-200 flex items-center gap-1 ${
                   userReactions[emoji] 
                     ? "bg-white/20" 
                     : ""
@@ -65,11 +69,14 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
                 onClick={() => handleReaction(emoji)}
               >
                 <span className="text-lg">{emoji}</span>
-                <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                  {reactionCounts[emoji]}
-                </span>
+                <span className="text-xs text-white/80">{reactionCounts[emoji]}</span>
               </Button>
             ))}
+            {remainingCount > 0 && (
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/80 text-xs">
+                +{remainingCount}
+              </div>
+            )}
           </div>
           
           <Button
