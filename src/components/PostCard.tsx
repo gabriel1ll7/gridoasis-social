@@ -85,11 +85,11 @@ const renderContent = (content: PostContent) => {
 export const PostCard = ({ username, userImage, content, likes, comments }: PostCardProps) => {
   const [showComments, setShowComments] = useState(false);
   const [reactions, setReactions] = useState<Reaction[]>([
-    { emoji: "❤️", count: likes, active: false },
-    { emoji: "👍", count: Math.floor(likes * 0.7), active: false },
-    { emoji: "😂", count: Math.floor(likes * 0.3), active: false },
-    { emoji: "⭐", count: Math.floor(likes * 0.2), active: false },
-    { emoji: "😠", count: Math.floor(likes * 0.1), active: false },
+    { emoji: <Heart className="h-4 w-4 text-red-500" />, count: likes, active: false },
+    { emoji: <ThumbsUp className="h-4 w-4 text-blue-500" />, count: Math.floor(likes * 0.7), active: false },
+    { emoji: <Laugh className="h-4 w-4 text-yellow-500" />, count: Math.floor(likes * 0.3), active: false },
+    { emoji: <Star className="h-4 w-4 text-yellow-400" />, count: Math.floor(likes * 0.2), active: false },
+    { emoji: <Angry className="h-4 w-4 text-red-600" />, count: Math.floor(likes * 0.1), active: false },
   ]);
 
   const handleReaction = (index: number) => {
@@ -131,7 +131,7 @@ export const PostCard = ({ username, userImage, content, likes, comments }: Post
                 }`}
                 onClick={() => handleReaction(index)}
               >
-                <span className="text-lg">{reaction.emoji}</span>
+                {reaction.emoji}
                 <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                   {reaction.count}
                 </span>
