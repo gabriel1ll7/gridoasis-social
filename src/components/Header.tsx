@@ -1,6 +1,7 @@
-import { Search, Bell, User } from "lucide-react";
+import { Bell, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export const Header = () => {
   return (
@@ -11,13 +12,12 @@ export const Header = () => {
         </div>
         
         <div className="flex-1 max-w-xl mx-4">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-            <input
-              type="text"
-              placeholder="Search..."
-              className="w-full pl-10 pr-4 py-2 bg-muted/50 rounded-full focus:outline-none focus:ring-2 focus:ring-social-primary/20"
-            />
+          <div className="flex items-center gap-3 bg-muted/50 rounded-full px-4 py-2 cursor-pointer hover:bg-muted/70 transition-colors">
+            <Avatar className="h-8 w-8">
+              <AvatarImage src="/placeholder.svg" />
+              <AvatarFallback>U</AvatarFallback>
+            </Avatar>
+            <span className="text-muted-foreground text-sm">What's happening?</span>
           </div>
         </div>
 
