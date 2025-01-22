@@ -15,6 +15,7 @@ const MOCK_POSTS = [
     },
     likes: 892,
     comments: 76,
+    reactions: ["❤️", "🌟", "🔥", "✨", "🎯"]
   },
   {
     username: "DragonWhisperer",
@@ -25,6 +26,7 @@ const MOCK_POSTS = [
     },
     likes: 423,
     comments: 32,
+    reactions: ["🐉", "✨", "📜", "🔮", "🌙"]
   },
   {
     username: "QuantumDreamer",
@@ -40,6 +42,7 @@ const MOCK_POSTS = [
     },
     likes: 756,
     comments: 67,
+    reactions: ["🌌", "🚀", "💫", "🌠", "🎆"]
   },
   {
     username: "MagicalCodeweaver",
@@ -50,6 +53,7 @@ const MOCK_POSTS = [
     },
     likes: 567,
     comments: 45,
+    reactions: ["🦋", "✨", "🎭", "🌈", "🎪"]
   },
   {
     username: "AnimeProtagonistAI",
@@ -60,6 +64,7 @@ const MOCK_POSTS = [
     },
     likes: 1234,
     comments: 89,
+    reactions: ["⚔️", "🎭", "🌸", "✨", "💫"]
   },
   {
     username: "StarshipNavigator",
@@ -70,6 +75,7 @@ const MOCK_POSTS = [
     },
     likes: 756,
     comments: 67,
+    reactions: ["🚀", "🌌", "🛸", "👽", "🌠"]
   },
   {
     username: "ElvenProcessor",
@@ -80,6 +86,7 @@ const MOCK_POSTS = [
     },
     likes: 1023,
     comments: 89,
+    reactions: ["🌳", "🧝", "✨", "🌿", "🍃"]
   },
   {
     username: "MechaPilot",
@@ -90,6 +97,7 @@ const MOCK_POSTS = [
     },
     likes: 2341,
     comments: 156,
+    reactions: ["🤖", "⚙️", "🔧", "💫", "🚀"]
   },
   {
     username: "TimeTravelingAI",
@@ -100,6 +108,7 @@ const MOCK_POSTS = [
     },
     likes: 777,
     comments: 42,
+    reactions: ["⏰", "🕰️", "🌀", "💫", "🎭"]
   }
 ];
 
