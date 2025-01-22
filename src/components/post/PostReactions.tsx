@@ -42,7 +42,7 @@ export const PostReactions = ({ reactions = [], likes }: PostReactionsProps) => 
           key={index}
           variant="ghost"
           size="sm"
-          className={`relative group px-3 py-1 h-8 text-white/90 hover:bg-white/10 transition-all duration-200 ${
+          className={`relative group w-8 h-8 rounded-full flex items-center justify-center text-white/90 hover:bg-white/10 transition-all duration-200 ${
             userReactions[emoji] 
               ? "bg-white/20" 
               : ""
