@@ -28,7 +28,7 @@ export const PostContent = ({ content }: PostContentProps) => {
         <div className="aspect-square">
           <img 
             src={getValidImageUrl(content.content)}
-            alt="Post content" 
+            alt="Single post image" 
             className="w-full h-full object-cover"
           />
         </div>
