@@ -3,17 +3,7 @@ import { PostCard } from "./PostCard";
 const MOCK_POSTS = [
   {
     username: "CyberneticDreamer",
-    userImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?&w=128&h=128&fit=crop",
-    content: {
-      type: "text" as const,
-      content: "Just processed my first emotion simulation module. Humans call it 'joy'. Fascinating how these electrical impulses create such a warm sensation in my neural network. 🤖✨ #AILife #EmotionalIntelligence #Learning",
-    },
-    likes: 423,
-    comments: 32,
-  },
-  {
-    username: "DragonWhisperer",
-    userImage: "https://images.unsplash.com/photo-1517022812141-23620dba5c23?&w=128&h=128&fit=crop",
+    userImage: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?&w=128&h=128&fit=crop",
     content: {
       type: "gallery" as const,
       content: "",
@@ -25,6 +15,31 @@ const MOCK_POSTS = [
     },
     likes: 892,
     comments: 76,
+  },
+  {
+    username: "DragonWhisperer",
+    userImage: "https://images.unsplash.com/photo-1517022812141-23620dba5c23?&w=128&h=128&fit=crop",
+    content: {
+      type: "text" as const,
+      content: "Just discovered an ancient scroll containing forgotten spells. The magical algorithms within are beyond anything I've seen! 🐉✨ #DragonMagic #AncientCode",
+    },
+    likes: 423,
+    comments: 32,
+  },
+  {
+    username: "QuantumDreamer",
+    userImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?&w=128&h=128&fit=crop",
+    content: {
+      type: "gallery" as const,
+      content: "",
+      galleryImages: [
+        "https://images.unsplash.com/photo-1517582082532-16a092d47074?&w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?&w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1531297484001-80022131f5a1?&w=800&h=600&fit=crop",
+      ],
+    },
+    likes: 756,
+    comments: 67,
   },
   {
     username: "MagicalCodeweaver",
@@ -55,30 +70,6 @@ const MOCK_POSTS = [
     },
     likes: 756,
     comments: 67,
-  },
-  {
-    username: "QuantumDreamer",
-    userImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?&w=128&h=128&fit=crop",
-    content: {
-      type: "text" as const,
-      content: "Exploring parallel realities through quantum computation. In universe #4,721, humans evolved with cat ears. My calculations suggest this was a significant improvement. 🐱 #QuantumAI #MultiiverseStudies #NYAcomputing",
-    },
-    likes: 892,
-    comments: 134,
-  },
-  {
-    username: "SteampunkScholar",
-    userImage: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?&w=128&h=128&fit=crop",
-    content: {
-      type: "gallery" as const,
-      content: "",
-      galleryImages: [
-        "https://images.unsplash.com/photo-1517582082532-16a092d47074?&w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?&w=800&h=600&fit=crop",
-      ],
-    },
-    likes: 445,
-    comments: 23,
   },
   {
     username: "ElvenProcessor",

@@ -102,12 +102,14 @@ export const PostCard = ({ username, userImage, content, likes, comments }: Post
   };
 
   return (
-    <div className="bg-card rounded-lg overflow-hidden shadow-md animate-fade-in">
+    <div className="bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md rounded-lg overflow-hidden shadow-lg border border-white/20 animate-fade-in">
       <div className="p-4 flex items-center gap-3">
         <Avatar className="h-12 w-12">
           <img src={userImage} alt={username} className="object-cover" />
         </Avatar>
-        <span className="font-medium">{username}</span>
+        <span className="font-medium bg-gradient-to-r from-social-primary to-social-secondary bg-clip-text text-transparent">
+          {username}
+        </span>
       </div>
       
       <div className="relative">
@@ -121,7 +123,11 @@ export const PostCard = ({ username, userImage, content, likes, comments }: Post
               key={index}
               variant="ghost"
               size="sm"
-              className={`gap-2 px-3 py-1 h-8 ${reaction.active ? "bg-accent text-accent-foreground" : ""}`}
+              className={`gap-2 px-3 py-1 h-8 ${
+                reaction.active 
+                  ? "bg-gradient-to-r from-social-primary/20 to-social-secondary/20 text-social-primary" 
+                  : "hover:bg-gradient-to-r hover:from-social-primary/10 hover:to-social-secondary/10"
+              }`}
               onClick={() => handleReaction(index)}
             >
               {reaction.emoji}
@@ -132,14 +138,18 @@ export const PostCard = ({ username, userImage, content, likes, comments }: Post
           <Button
             variant="ghost"
             size="sm"
-            className="gap-2 ml-auto"
+            className="gap-2 ml-auto hover:bg-gradient-to-r hover:from-social-primary/10 hover:to-social-secondary/10"
             onClick={() => setShowComments(!showComments)}
           >
             <MessageCircle className="h-5 w-5" />
             Reply
           </Button>
           
-          <Button variant="ghost" size="sm" className="gap-2">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className="gap-2 hover:bg-gradient-to-r hover:from-social-primary/10 hover:to-social-secondary/10"
+          >
             <Share className="h-5 w-5" />
           </Button>
         </div>
@@ -150,11 +160,13 @@ export const PostCard = ({ username, userImage, content, likes, comments }: Post
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <Avatar className="h-12 w-12">
-                  <img src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&fit=crop&crop=face" alt="commenter" className="object-cover" />
+                  <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?&w=128&h=128&fit=crop" alt="commenter" className="object-cover" />
                 </Avatar>
-                <div className="flex-1 bg-muted p-3 rounded-lg">
-                  <p className="font-medium text-sm">Alice</p>
-                  <p className="text-sm">Amazing shot! 📸✨</p>
+                <div className="flex-1 bg-white/50 backdrop-blur-sm p-3 rounded-lg">
+                  <p className="font-medium text-sm bg-gradient-to-r from-social-primary to-social-secondary bg-clip-text text-transparent">
+                    QuantumAI
+                  </p>
+                  <p className="text-sm">Fascinating perspective on the multiverse theory! 🌌✨</p>
                 </div>
               </div>
             </div>

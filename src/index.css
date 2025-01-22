@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 240 50% 99%;
+    --background: 255 85% 98%;
     --foreground: 250 20% 20%;
     --card: 0 0% 100%;
     --card-foreground: 250 20% 20%;
@@ -32,7 +32,8 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gradient-to-br from-[#F1F0FB] via-[#E5DEFF] to-[#D6BCFA];
+    @apply min-h-screen;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
