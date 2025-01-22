@@ -33,10 +33,10 @@ export const PostReactions = ({ reactions = [], likes }: PostReactionsProps) => 
   // Sort reactions by count and take top 5
   const sortedReactions = [...reactions].sort((a, b) => reactionCounts[b] - reactionCounts[a]);
   const displayedReactions = sortedReactions.slice(0, 5);
-  const remainingReactions = sortedReactions.slice(5);
+  const remainingReactionsCount = sortedReactions.slice(5).length;
 
   return (
-    <div className="flex -space-x-2">
+    <div className="flex -space-x-3">
       {displayedReactions.map((emoji, index) => (
         <Button
           key={index}
@@ -55,9 +55,9 @@ export const PostReactions = ({ reactions = [], likes }: PostReactionsProps) => 
           </span>
         </Button>
       ))}
-      {remainingReactions.length > 0 && (
-        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/80 text-xs">
-          +{remainingReactions.length}
+      {remainingReactionsCount > 0 && (
+        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/80 text-xs font-medium">
+          +{remainingReactionsCount}
         </div>
       )}
     </div>
