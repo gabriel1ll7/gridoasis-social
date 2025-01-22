@@ -56,7 +56,7 @@ export const PostReactions = ({ reactions = [], likes }: PostReactionsProps) => 
         </Button>
       ))}
       {remainingReactionsCount > 0 && (
-        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/80 text-xs font-medium">
+        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white/20 text-white text-xs font-medium ring-1 ring-white/20">
           +{remainingReactionsCount}
         </div>
       )}
