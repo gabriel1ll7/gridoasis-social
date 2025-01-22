@@ -24,12 +24,14 @@ export const PostContent = ({ content }: PostContentProps) => {
       return <p className="text-sm text-card-foreground px-6 py-4">{content.content}</p>;
     
     case 'image':
+      console.log('Single image content:', content.content); // Debug log
       return (
-        <div className="aspect-square">
+        <div className="aspect-square w-full">
           <img 
             src={content.content}
-            alt="Single post image" 
+            alt="Post image" 
             className="w-full h-full object-cover"
+            onError={(e) => console.error('Image failed to load:', e)} // Debug log
           />
         </div>
       );
