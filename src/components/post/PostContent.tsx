@@ -11,6 +11,14 @@ interface PostContentProps {
 }
 
 export const PostContent = ({ content }: PostContentProps) => {
+  // Helper function to get a valid image URL
+  const getValidImageUrl = (url: string) => {
+    // If the URL is already a full URL, use it
+    if (url.startsWith('http')) return url;
+    // Otherwise, assume it's a local image and use the public directory
+    return `/images/${url}`;
+  };
+
   switch (content.type) {
     case 'text':
       return <p className="text-sm text-card-foreground px-6 py-4">{content.content}</p>;
@@ -19,7 +27,7 @@ export const PostContent = ({ content }: PostContentProps) => {
       return (
         <div className="aspect-square">
           <img 
-            src={content.content} 
+            src={getValidImageUrl(content.content)}
             alt="Post content" 
             className="w-full h-full object-cover"
           />
@@ -37,7 +45,7 @@ export const PostContent = ({ content }: PostContentProps) => {
         return (
           <div className="aspect-square">
             <img 
-              src={displayImages[0]} 
+              src={getValidImageUrl(displayImages[0])}
               alt="Gallery image" 
               className="w-full h-full object-cover"
             />
@@ -57,7 +65,7 @@ export const PostContent = ({ content }: PostContentProps) => {
               }`}
             >
               <img 
-                src={image} 
+                src={getValidImageUrl(image)}
                 alt={`Gallery image ${index + 1}`} 
                 className="w-full h-full object-cover"
               />
