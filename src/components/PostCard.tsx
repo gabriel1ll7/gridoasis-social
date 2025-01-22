@@ -5,23 +5,9 @@ import { PostContent } from "./post/PostContent";
 import { PostComments } from "./post/PostComments";
 import { PostReactions } from "./post/PostReactions";
 import { PostActions } from "./post/PostActions";
+import type { Post } from "@/types/post";
 
-type PostContent = {
-  type: 'text' | 'image' | 'gallery' | 'video' | 'youtube';
-  content: string;
-  galleryImages?: string[];
-};
-
-interface PostCardProps {
-  username: string;
-  userImage: string;
-  content: PostContent;
-  likes: number;
-  comments: number;
-  reactions?: string[];
-}
-
-export const PostCard = ({ username, userImage, content, likes, comments, reactions = [] }: PostCardProps) => {
+export const PostCard = ({ username, userImage, content, likes, comments, reactions = [] }: Post) => {
   const [showComments, setShowComments] = useState(false);
 
   return (
