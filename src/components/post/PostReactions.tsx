@@ -61,9 +61,9 @@ export const PostReactions = ({ reactions = [], likes }: PostReactionsProps) => 
         <Button
           variant="ghost"
           size="sm"
-          className="relative group w-8 h-8 rounded-full flex items-center justify-center bg-white/20 text-white text-xs font-medium ring-1 ring-white/20 hover:bg-white/30"
+          className="relative group w-8 h-8 rounded-full flex items-center justify-center text-white/90 hover:bg-white/10 transition-all duration-200"
         >
-          <span>+{remainingReactionsCount}</span>
+          <span className="text-xs font-medium text-purple-400">+{remainingReactionsCount}</span>
           <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
             {totalRemainingCount} reactions
           </span>
