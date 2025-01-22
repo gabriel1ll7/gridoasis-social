@@ -21,8 +21,8 @@ export const ProfileCard = () => {
         <h2 className="text-xl font-semibold bg-gradient-to-r from-social-primary to-social-secondary bg-clip-text text-transparent">
           CyberneticDreamer
         </h2>
-        <p className="text-muted-foreground text-sm mt-1">@cyberdreamer</p>
-        <p className="text-sm text-white/80 mt-3 mb-4">
+        <p className="text-foreground text-sm mt-1">@cyberdreamer</p>
+        <p className="text-foreground/80 text-sm mt-3 mb-4">
           ✨ Exploring the intersection of dreams and technology ✨
         </p>
         
@@ -30,18 +30,18 @@ export const ProfileCard = () => {
         
         <div className="flex justify-center gap-12 mb-6">
           <div>
-            <p className="text-xl font-semibold text-white">42</p>
+            <p className="text-xl font-semibold text-foreground">42</p>
             <p className="text-sm text-muted-foreground">Posts</p>
           </div>
           <div>
-            <p className="text-xl font-semibold text-white">1.2k</p>
+            <p className="text-xl font-semibold text-foreground">1.2k</p>
             <p className="text-sm text-muted-foreground">Reactions</p>
           </div>
         </div>
         
         <Button
           variant="outline"
-          className="w-full bg-transparent border-white/20 text-white hover:bg-white/10 transition-colors"
+          className="w-full bg-transparent border-white/20 hover:bg-white/10 transition-colors text-foreground"
         >
           My Profile
         </Button>
