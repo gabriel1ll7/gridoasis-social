@@ -1,5 +1,6 @@
 import { Search, Bell, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "./ThemeToggle";
 
 export const Header = () => {
   return (
@@ -21,6 +22,7 @@ export const Header = () => {
         </div>
 
         <div className="flex items-center gap-4">
+          <ThemeToggle />
           <Button variant="ghost" size="icon" className="relative">
             <Bell className="h-5 w-5" />
             <span className="absolute -top-1 -right-1 h-4 w-4 bg-social-primary text-white text-xs rounded-full flex items-center justify-center">
