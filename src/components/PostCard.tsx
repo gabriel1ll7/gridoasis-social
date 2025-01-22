@@ -22,7 +22,10 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
         <div className="flex flex-wrap items-center gap-2 mb-4">
           <PostReactions reactions={reactions} likes={likes} />
           <div className="ml-auto">
-            <PostActions onCommentClick={() => setShowComments(!showComments)} />
+            <PostActions 
+              onCommentClick={() => setShowComments(!showComments)} 
+              replyCount={replies?.length || 0}
+            />
           </div>
         </div>
 
