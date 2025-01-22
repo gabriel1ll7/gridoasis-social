@@ -1,15 +1,23 @@
 export const getValidImageUrl = (url: string): string => {
+  // If the URL is empty or undefined, return placeholder
+  if (!url) {
+    return '/placeholder.svg';
+  }
+
   // Remove any whitespace, newlines, and tabs
   const cleanUrl = url.replace(/[\n\r\t\s]+/g, '').trim();
   
   // If it's already a valid URL, return it
   if (cleanUrl.startsWith('http')) {
+    console.log('Valid URL found:', cleanUrl);
     return cleanUrl;
   }
   
   // If it's a relative path, prepend with /images/
   if (!cleanUrl.startsWith('/')) {
-    return `/images/${cleanUrl}`;
+    const fullPath = `/images/${cleanUrl}`;
+    console.log('Converting to full path:', fullPath);
+    return fullPath;
   }
   
   return cleanUrl;
