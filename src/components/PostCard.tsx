@@ -23,9 +23,15 @@ interface PostCardProps {
 
 export const PostCard = ({ username, userImage, content, likes, comments, reactions = [] }: PostCardProps) => {
   const [showComments, setShowComments] = useState(false);
-  const [reactionCounts, setReactionCounts] = useState<Record<string, number>>(
-    Object.fromEntries(reactions.map(emoji => [emoji, Math.floor(likes / reactions.length)]))
-  );
+  const [reactionCounts, setReactionCounts] = useState<Record<string, number>>(() => {
+    // Sort reactions by count in descending order and create the counts object
+    const counts = reactions.reduce((acc, emoji) => {
+      acc[emoji] = Math.floor(likes / reactions.length);
+      return acc;
+    }, {} as Record<string, number>);
+    
+    return counts;
+  });
   const [userReactions, setUserReactions] = useState<Record<string, boolean>>(
     Object.fromEntries(reactions.map(emoji => [emoji, false]))
   );
@@ -41,9 +47,10 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
     }));
   };
 
-  // Take only the first 6 emojis
-  const displayedReactions = reactions.slice(0, 6);
-  const remainingCount = Math.max(0, reactions.length - 6);
+  // Sort reactions by count and take top 5
+  const sortedReactions = [...reactions].sort((a, b) => reactionCounts[b] - reactionCounts[a]);
+  const displayedReactions = sortedReactions.slice(0, 5);
+  const remainingReactions = sortedReactions.slice(5);
 
   return (
     <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md rounded-lg overflow-hidden shadow-lg border border-white/10 animate-fade-in">
@@ -55,13 +62,13 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
       
       <div className="p-4">
         <div className="flex flex-wrap items-center gap-2 mb-4">
-          <div className="flex gap-2">
+          <div className="flex -space-x-1">
             {displayedReactions.map((emoji, index) => (
               <Button
                 key={index}
                 variant="ghost"
                 size="sm"
-                className={`px-3 py-1 h-8 text-white/90 hover:bg-white/10 transition-all duration-200 flex items-center gap-1 ${
+                className={`relative group px-3 py-1 h-8 text-white/90 hover:bg-white/10 transition-all duration-200 ${
                   userReactions[emoji] 
                     ? "bg-white/20" 
                     : ""
@@ -69,12 +76,14 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
                 onClick={() => handleReaction(emoji)}
               >
                 <span className="text-lg">{emoji}</span>
-                <span className="text-xs text-white/80">{reactionCounts[emoji]}</span>
+                <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  {reactionCounts[emoji]}
+                </span>
               </Button>
             ))}
-            {remainingCount > 0 && (
+            {remainingReactions.length > 0 && (
               <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/80 text-xs">
-                +{remainingCount}
+                +{remainingReactions.length}
               </div>
             )}
           </div>
