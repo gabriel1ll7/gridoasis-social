@@ -17,11 +17,13 @@ export const PostContent = ({ content }: PostContentProps) => {
     
     case 'image':
       return (
-        <img 
-          src={content.content} 
-          alt="Post content" 
-          className="w-full h-auto object-cover"
-        />
+        <div className="aspect-square">
+          <img 
+            src={content.content} 
+            alt="Post content" 
+            className="w-full h-full object-cover"
+          />
+        </div>
       );
     
     case 'gallery':
@@ -33,11 +35,13 @@ export const PostContent = ({ content }: PostContentProps) => {
 
       if (totalImages === 1) {
         return (
-          <img 
-            src={displayImages[0]} 
-            alt="Gallery image" 
-            className="w-full h-auto object-cover"
-          />
+          <div className="aspect-square">
+            <img 
+              src={displayImages[0]} 
+              alt="Gallery image" 
+              className="w-full h-full object-cover"
+            />
+          </div>
         );
       }
 
