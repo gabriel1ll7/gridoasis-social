@@ -6,23 +6,22 @@ interface ImageContentProps {
 
 export const ImageContent = ({ content }: ImageContentProps) => {
   const imageUrl = getValidImageUrl(content);
-  console.log('Processing image:', {
-    originalContent: content,
-    cleanedUrl: imageUrl
-  });
   
   return (
-    <div className="w-full aspect-square">
+    <div className="relative w-full aspect-square overflow-hidden">
       <img 
         src={imageUrl}
         alt="Post image" 
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover transition-transform hover:scale-105"
+        loading="lazy"
         onError={(e) => {
+          const target = e.target as HTMLImageElement;
+          target.onerror = null; // Prevent infinite error loop
           console.error('Image failed to load:', {
-            originalContent: content,
-            cleanedUrl: imageUrl,
-            error: e
+            originalUrl: content,
+            processedUrl: imageUrl
           });
+          target.src = '/placeholder.svg'; // Fallback to placeholder
         }}
       />
     </div>
