@@ -25,22 +25,40 @@ export const PostContent = ({ content }: PostContentProps) => {
       );
     
     case 'gallery':
+      const totalImages = content.galleryImages?.length || 0;
+      const displayImages = content.galleryImages?.slice(0, 4) || [];
+      const remainingImages = totalImages > 4 ? totalImages - 4 : 0;
+
+      if (totalImages <= 1) {
+        return (
+          <img 
+            src={displayImages[0]} 
+            alt="Gallery image" 
+            className="w-full h-auto object-cover"
+          />
+        );
+      }
+
       return (
-        <Carousel className="w-full">
-          <CarouselContent>
-            {content.galleryImages?.map((image, index) => (
-              <CarouselItem key={index}>
-                <img 
-                  src={image} 
-                  alt={`Gallery image ${index + 1}`} 
-                  className="w-full h-auto object-cover"
-                />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+        <div className="grid grid-cols-2 gap-1 aspect-square">
+          {displayImages.map((image, index) => (
+            <div 
+              key={index} 
+              className={`relative ${index === 3 && remainingImages > 0 ? 'cursor-pointer' : ''}`}
+            >
+              <img 
+                src={image} 
+                alt={`Gallery image ${index + 1}`} 
+                className="w-full h-full object-cover"
+              />
+              {index === 3 && remainingImages > 0 && (
+                <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold">+{remainingImages}</span>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       );
     
     case 'video':
