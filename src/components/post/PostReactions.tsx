@@ -36,7 +36,7 @@ export const PostReactions = ({ reactions = [], likes }: PostReactionsProps) => 
   const remainingReactionsCount = sortedReactions.slice(5).length;
 
   return (
-    <div className="flex -space-x-3">
+    <div className="flex items-center -space-x-3">
       {displayedReactions.map((emoji, index) => (
         <Button
           key={index}
@@ -56,9 +56,13 @@ export const PostReactions = ({ reactions = [], likes }: PostReactionsProps) => 
         </Button>
       ))}
       {remainingReactionsCount > 0 && (
-        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white/20 text-white text-xs font-medium ring-1 ring-white/20">
+        <Button
+          variant="ghost"
+          size="sm"
+          className="flex items-center justify-center w-8 h-8 rounded-full bg-white/20 text-white text-xs font-medium ring-1 ring-white/20 hover:bg-white/30"
+        >
           +{remainingReactionsCount}
-        </div>
+        </Button>
       )}
     </div>
   );
