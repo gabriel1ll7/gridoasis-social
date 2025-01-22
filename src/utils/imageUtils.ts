@@ -8,7 +8,6 @@ export const getValidImageUrl = (url: string): string => {
     return '/placeholder.svg';
   }
 
-  // URL is already clean at this point since we cleaned it in the XML parser
   // If it's already a valid URL, return it
   if (url.startsWith('http')) {
     console.log('Valid URL found:', url);

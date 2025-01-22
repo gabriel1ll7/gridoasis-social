@@ -16,8 +16,9 @@ export const parsePostsXml = (xmlText: string): Post[] => {
     // Handle different content types
     let content = contentText;
     if (type === "image") {
-      // Clean the image URL by removing newlines and extra spaces
-      content = contentText.replace(/[\n\r\t\s]+/g, '');
+      // Clean the image URL by removing newlines, extra spaces, and the "image" prefix
+      content = contentText.replace(/[\n\r\t\s]+/g, '').replace(/^image/, '');
+      console.log('Cleaned image URL:', content);
     }
     
     return {
@@ -27,7 +28,7 @@ export const parsePostsXml = (xmlText: string): Post[] => {
         type,
         content,
         galleryImages: Array.from(post.getElementsByTagName("image"))
-          .map(img => img.textContent?.trim() || "")
+          .map(img => (img.textContent?.trim() || "").replace(/^image/, ''))
           .filter(url => url !== "")
       },
       likes: parseInt(post.getElementsByTagName("likes")[0]?.textContent || "0"),
