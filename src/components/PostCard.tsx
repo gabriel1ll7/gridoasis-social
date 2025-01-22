@@ -7,7 +7,7 @@ import { PostReactions } from "./post/PostReactions";
 import { PostActions } from "./post/PostActions";
 import type { Post } from "@/types/post";
 
-export const PostCard = ({ username, userImage, content, likes, comments, reactions = [] }: Post) => {
+export const PostCard = ({ username, userImage, content, likes, comments, reactions = [], replies = [] }: Post) => {
   const [showComments, setShowComments] = useState(false);
 
   return (
@@ -29,7 +29,7 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
         {showComments && (
           <>
             <Separator className="my-4 bg-white/10" />
-            <PostComments />
+            <PostComments replies={replies} />
           </>
         )}
       </div>

@@ -6,6 +6,12 @@ export interface PostContent {
   galleryImages?: string[];
 }
 
+export interface Reply {
+  username: string;
+  userImage: string;
+  content: string;
+}
+
 export interface Post {
   username: string;
   userImage: string;
@@ -13,4 +19,5 @@ export interface Post {
   likes: number;
   comments: number;
   reactions?: string[];
+  replies?: Reply[];
 }

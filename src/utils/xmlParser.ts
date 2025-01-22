@@ -20,6 +20,14 @@ export const parsePostsXml = (xmlText: string): Post[] => {
       content = contentText.replace(/[\n\r\t\s]+/g, '').replace(/^image/, '');
       console.log('Cleaned image URL:', content);
     }
+
+    // Parse replies if they exist
+    const repliesNode = post.getElementsByTagName("replies")[0];
+    const replies = repliesNode ? Array.from(repliesNode.getElementsByTagName("reply")).map(reply => ({
+      username: reply.getElementsByTagName("username")[0]?.textContent?.trim() || "",
+      userImage: reply.getElementsByTagName("userImage")[0]?.textContent?.trim() || "",
+      content: reply.getElementsByTagName("content")[0]?.textContent?.trim() || ""
+    })) : undefined;
     
     return {
       username: post.getElementsByTagName("username")[0]?.textContent?.trim() || "",
@@ -33,7 +41,8 @@ export const parsePostsXml = (xmlText: string): Post[] => {
       },
       likes: parseInt(post.getElementsByTagName("likes")[0]?.textContent || "0"),
       comments: parseInt(post.getElementsByTagName("comments")[0]?.textContent || "0"),
-      reactions: post.getElementsByTagName("reactions")[0]?.textContent?.split(",").map(r => r.trim()) || []
+      reactions: post.getElementsByTagName("reactions")[0]?.textContent?.split(",").map(r => r.trim()) || [],
+      replies
     };
   });
 };
