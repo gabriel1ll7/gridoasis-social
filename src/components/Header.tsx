@@ -1,4 +1,4 @@
-import { Bell, User, Image, Video, MessageCircle } from "lucide-react";
+import { Bell, User, Image, Video, MessageCircleReply } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -24,21 +24,21 @@ export const Header = () => {
                 size="icon" 
                 className="h-9 w-9 text-social-primary hover:text-social-primary/90 hover:bg-white/10"
               >
-                <Image className="h-5 w-5" />
+                <Image className="h-6 w-6" />
               </Button>
               <Button 
                 variant="ghost" 
                 size="icon" 
                 className="h-9 w-9 text-social-secondary hover:text-social-secondary/90 hover:bg-white/10"
               >
-                <Video className="h-5 w-5" />
+                <Video className="h-6 w-6" />
               </Button>
               <Button 
                 variant="ghost" 
                 size="icon" 
                 className="h-9 w-9 text-social-accent hover:text-social-accent/90 hover:bg-white/10"
               >
-                <MessageCircle className="h-5 w-5" />
+                <MessageCircleReply className="h-6 w-6" />
               </Button>
             </div>
           </div>
