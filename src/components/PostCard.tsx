@@ -10,6 +10,7 @@ import type { Post, Reply } from "@/types/post";
 
 export const PostCard = ({ username, userImage, content, likes, comments, reactions = [], replies = [] }: Post) => {
   const [showComments, setShowComments] = useState(false);
+  const [showReplyInput, setShowReplyInput] = useState(false);
   const [localReplies, setLocalReplies] = useState<Reply[]>(replies);
 
   const handleReply = (content: string) => {
@@ -19,6 +20,7 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
       content
     };
     setLocalReplies([...localReplies, newReply]);
+    setShowReplyInput(false);
   };
 
   return (
@@ -43,10 +45,14 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
         {showComments && (
           <>
             <Separator className="my-4 bg-white/10" />
-            <ReplyInput onSubmit={handleReply} />
-            <div className="mt-4">
-              <PostComments replies={localReplies} />
-            </div>
+            {showReplyInput ? (
+              <ReplyInput onSubmit={handleReply} />
+            ) : (
+              <PostComments 
+                replies={localReplies} 
+                onReplyClick={() => setShowReplyInput(true)} 
+              />
+            )}
           </>
         )}
       </div>
