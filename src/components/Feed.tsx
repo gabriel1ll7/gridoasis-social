@@ -8,15 +8,17 @@ export const Feed = () => {
 
   return (
     <div className="container mx-auto px-4 pt-24 pb-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full max-w-6xl mx-auto">
-        <div className="w-full">
-          <ProfileCard />
-        </div>
-        {posts.map((post, index) => (
-          <div key={index} className="w-full">
-            <PostCard {...post} />
+      <div className="flex flex-col gap-5 w-full max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="w-full">
+            <ProfileCard />
           </div>
-        ))}
+          {posts.map((post, index) => (
+            <div key={index} className="w-full">
+              <PostCard {...post} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
