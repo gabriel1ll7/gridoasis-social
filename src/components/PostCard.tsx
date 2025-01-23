@@ -24,7 +24,7 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
   };
 
   return (
-    <div className="flex flex-col gap-2 animate-fade-in">
+    <div className="space-y-2 animate-fade-in">
       <div className="bg-gradient-to-br from-white/40 via-white/30 to-white/20 dark:from-white/10 dark:to-white/5 backdrop-blur-md rounded-lg overflow-hidden shadow-lg border border-white/20 dark:border-white/10">
         <PostHeader username={username} userImage={userImage} />
         
