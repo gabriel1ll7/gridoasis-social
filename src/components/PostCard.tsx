@@ -24,8 +24,8 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
   };
 
   return (
-    <div className="relative">
-      <div className="bg-gradient-to-br from-white/40 via-white/30 to-white/20 dark:from-white/10 dark:to-white/5 backdrop-blur-md rounded-lg overflow-hidden shadow-lg border border-white/20 dark:border-white/10 animate-fade-in">
+    <div className="space-y-2 animate-fade-in">
+      <div className="bg-gradient-to-br from-white/40 via-white/30 to-white/20 dark:from-white/10 dark:to-white/5 backdrop-blur-md rounded-lg overflow-hidden shadow-lg border border-white/20 dark:border-white/10">
         <PostHeader username={username} userImage={userImage} />
         
         <div className="relative">
@@ -45,9 +45,9 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
         </div>
       </div>
 
-      {/* Comments section positioned absolutely to prevent layout shifts */}
+      {/* Comments section with proper spacing and flow */}
       {showComments && (
-        <div className="absolute left-0 right-0 top-full mt-2 bg-gradient-to-br from-white/40 via-white/30 to-white/20 dark:from-white/10 dark:to-white/5 backdrop-blur-md rounded-lg overflow-hidden shadow-lg border border-white/20 dark:border-white/10">
+        <div className="bg-gradient-to-br from-white/40 via-white/30 to-white/20 dark:from-white/10 dark:to-white/5 backdrop-blur-md rounded-lg overflow-hidden shadow-lg border border-white/20 dark:border-white/10 mt-2">
           <div className="p-4">
             {showReplyInput ? (
               <ReplyInput onSubmit={handleReply} />
