@@ -1,4 +1,4 @@
-import { Bell, User } from "lucide-react";
+import { Bell, User, Image, Video, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -17,7 +17,30 @@ export const Header = () => {
               <AvatarImage src="https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?&w=128&h=128&fit=crop" />
               <AvatarFallback>CD</AvatarFallback>
             </Avatar>
-            <span className="text-muted-foreground text-sm">Share your dreams...</span>
+            <span className="text-muted-foreground text-sm flex-1">Share your dreams...</span>
+            <div className="flex items-center gap-2">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="h-8 w-8 text-social-primary hover:text-social-primary/90 hover:bg-white/10"
+              >
+                <Image className="h-4 w-4" />
+              </Button>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="h-8 w-8 text-social-secondary hover:text-social-secondary/90 hover:bg-white/10"
+              >
+                <Video className="h-4 w-4" />
+              </Button>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="h-8 w-8 text-social-accent hover:text-social-accent/90 hover:bg-white/10"
+              >
+                <MessageSquare className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
         </div>
 
