@@ -12,7 +12,7 @@ export const Feed = () => {
         <div className="break-inside-avoid mb-6">
           <ProfileCard />
         </div>
-        {posts.map((index) => (
+        {posts.map((post, index) => (
           <div key={index} className="break-inside-avoid mb-24">
             <PostCard {...post} />
           </div>
