@@ -5,10 +5,21 @@ import { PostContent } from "./post/PostContent";
 import { PostComments } from "./post/PostComments";
 import { PostReactions } from "./post/PostReactions";
 import { PostActions } from "./post/PostActions";
-import type { Post } from "@/types/post";
+import { ReplyInput } from "./post/ReplyInput";
+import type { Post, Reply } from "@/types/post";
 
 export const PostCard = ({ username, userImage, content, likes, comments, reactions = [], replies = [] }: Post) => {
   const [showComments, setShowComments] = useState(false);
+  const [localReplies, setLocalReplies] = useState<Reply[]>(replies);
+
+  const handleReply = (content: string) => {
+    const newReply: Reply = {
+      username: "You", // This would normally come from auth context
+      userImage: "https://github.com/shadcn.png", // This would normally come from auth context
+      content
+    };
+    setLocalReplies([...localReplies, newReply]);
+  };
 
   return (
     <div className="bg-gradient-to-br from-white/40 via-white/30 to-white/20 dark:from-white/10 dark:to-white/5 backdrop-blur-md rounded-lg overflow-hidden shadow-lg border border-white/20 dark:border-white/10 animate-fade-in">
@@ -24,7 +35,7 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
           <div className="ml-auto">
             <PostActions 
               onCommentClick={() => setShowComments(!showComments)} 
-              replyCount={replies?.length || 0}
+              replyCount={localReplies?.length || 0}
             />
           </div>
         </div>
@@ -32,7 +43,10 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
         {showComments && (
           <>
             <Separator className="my-4 bg-white/10" />
-            <PostComments replies={replies} />
+            <ReplyInput onSubmit={handleReply} />
+            <div className="mt-4">
+              <PostComments replies={localReplies} />
+            </div>
           </>
         )}
       </div>
