@@ -15,8 +15,8 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
 
   const handleReply = (content: string) => {
     const newReply: Reply = {
-      username: "You",
-      userImage: "https://github.com/shadcn.png",
+      username: "You", // This would normally come from auth context
+      userImage: "https://github.com/shadcn.png", // This would normally come from auth context
       content
     };
     setLocalReplies([...localReplies, newReply]);
@@ -24,26 +24,31 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
   };
 
   return (
-    <div className="bg-gradient-to-br from-white/40 via-white/30 to-white/20 dark:from-white/10 dark:to-white/5 backdrop-blur-md rounded-lg overflow-hidden shadow-lg border border-white/20 dark:border-white/10">
-      <PostHeader username={username} userImage={userImage} />
-      
-      <div className="relative">
-        <PostContent content={content} />
-      </div>
-      
-      <div className="p-4">
-        <div className="flex flex-wrap items-center gap-2 mb-4">
-          <PostReactions reactions={reactions} likes={likes} />
-          <div className="ml-auto">
-            <PostActions 
-              onCommentClick={() => setShowComments(!showComments)} 
-              replyCount={localReplies?.length || 0}
-            />
+    <div className="space-y-2 animate-fade-in">
+      <div className="bg-gradient-to-br from-white/40 via-white/30 to-white/20 dark:from-white/10 dark:to-white/5 backdrop-blur-md rounded-lg overflow-hidden shadow-lg border border-white/20 dark:border-white/10">
+        <PostHeader username={username} userImage={userImage} />
+        
+        <div className="relative">
+          <PostContent content={content} />
+        </div>
+        
+        <div className="p-4">
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            <PostReactions reactions={reactions} likes={likes} />
+            <div className="ml-auto">
+              <PostActions 
+                onCommentClick={() => setShowComments(!showComments)} 
+                replyCount={localReplies?.length || 0}
+              />
+            </div>
           </div>
         </div>
+      </div>
 
-        {showComments && (
-          <div className="mt-4 pt-4 border-t border-white/10">
+      {/* Comments section with proper spacing and flow */}
+      {showComments && (
+        <div className="bg-gradient-to-br from-white/40 via-white/30 to-white/20 dark:from-white/10 dark:to-white/5 backdrop-blur-md rounded-lg overflow-hidden shadow-lg border border-white/20 dark:border-white/10 mt-2">
+          <div className="p-4">
             {showReplyInput ? (
               <ReplyInput onSubmit={handleReply} />
             ) : (
@@ -53,8 +58,8 @@ export const PostCard = ({ username, userImage, content, likes, comments, reacti
               />
             )}
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
