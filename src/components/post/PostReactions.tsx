@@ -10,9 +10,8 @@ import type { PostReactionsProps } from "@/types/post";
  * PostReactions Component
  * 
  * Handles the display and interaction with post reactions (emojis).
- * Manages local state for user reactions and reaction counts.
- * Shows tooltips with reaction counts on hover.
- * Allows users to add new emoji reactions through an emoji picker.
+ * Shows exactly 4 emojis with a counter for additional ones.
+ * Allows adding new emoji reactions through an emoji picker.
  * 
  * @param reactions - Array of emoji reactions available for the post
  * @param likes - Number of likes on the post
@@ -54,13 +53,13 @@ export const PostReactions = ({ reactions: initialReactions }: PostReactionsProp
     }
   };
 
-  // Always show exactly 5 emojis, pad with default emojis if needed
-  const defaultEmojis = ["👍", "❤️", "😊", "🎉", "👏"];
-  const displayedReactions = reactions.length >= 5 
-    ? reactions.slice(0, 5) 
-    : [...reactions, ...defaultEmojis.slice(reactions.length)].slice(0, 5);
+  // Always show exactly 4 emojis, pad with default emojis if needed
+  const defaultEmojis = ["👍", "❤️", "😊", "🎉"];
+  const displayedReactions = reactions.length >= 4 
+    ? reactions.slice(0, 4) 
+    : [...reactions, ...defaultEmojis.slice(reactions.length)].slice(0, 4);
   
-  const remainingReactions = reactions.slice(5);
+  const remainingReactions = reactions.slice(4);
   const remainingReactionsCount = remainingReactions.length;
   const totalRemainingCount = remainingReactions.reduce((sum, emoji) => sum + (reactionCounts[emoji] || 0), 0);
 
