@@ -27,7 +27,7 @@ export const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md border-b z-50">
-      <div className="container mx-auto h-16">
+      <div className="container mx-auto h-20">
         <div className="flex items-center h-full px-4 gap-4">
           <div className="text-2xl font-bold bg-gradient-to-r from-social-primary to-social-secondary bg-clip-text text-transparent">
             Social
