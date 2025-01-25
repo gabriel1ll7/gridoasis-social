@@ -1,3 +1,15 @@
+/**
+ * Header Component
+ * 
+ * A fixed position header that contains:
+ * - Brand logo/text
+ * - Post creation input with media buttons
+ * - Navigation icons (messages, notifications)
+ * - User profile dropdown
+ * 
+ * The header uses a glass-morphism effect with backdrop blur
+ * and includes interactive elements with hover states.
+ */
 import { Bell, User, Image, Video, MessageCircleReply, Home, Settings, LogOut, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
@@ -13,10 +25,12 @@ export const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md border-b z-50">
       <div className="container mx-auto px-4 h-32 flex items-center justify-between">
+        {/* Brand logo/text with gradient effect */}
         <div className="text-2xl font-bold bg-gradient-to-r from-social-primary to-social-secondary bg-clip-text text-transparent">
           Social
         </div>
         
+        {/* Post creation input with media buttons */}
         <div className="flex-1 max-w-lg mx-4">
           <div className="flex items-center gap-3 bg-muted/50 rounded-full px-6 py-4 cursor-pointer hover:bg-muted/70 transition-colors">
             <Avatar className="h-10 w-10">
@@ -25,6 +39,7 @@ export const Header = () => {
             </Avatar>
             <span className="text-muted-foreground text-base flex-1">Share your dreams...</span>
             <div className="flex items-center gap-2">
+              {/* Media upload buttons with hover effects */}
               <Button 
                 variant="ghost" 
                 size="icon" 
@@ -50,20 +65,24 @@ export const Header = () => {
           </div>
         </div>
 
+        {/* Navigation icons and user menu */}
         <div className="flex items-center gap-4">
           <ThemeToggle />
+          {/* Message notification with counter */}
           <Button variant="ghost" size="icon" className="relative text-foreground h-14 w-14">
             <MessageCircle className="h-12 w-12" />
             <span className="absolute -top-1 -right-1 h-4 w-4 bg-social-accent text-white text-xs rounded-full flex items-center justify-center">
               2
             </span>
           </Button>
+          {/* Bell notification with counter */}
           <Button variant="ghost" size="icon" className="relative text-foreground h-14 w-14">
             <Bell className="h-12 w-12" />
             <span className="absolute -top-1 -right-1 h-4 w-4 bg-social-primary text-white text-xs rounded-full flex items-center justify-center">
               3
             </span>
           </Button>
+          {/* User profile dropdown menu */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" className="text-foreground h-14 w-14">
