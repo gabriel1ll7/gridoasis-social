@@ -34,10 +34,7 @@ export const Header = () => {
           </div>
           
           <div className="flex-1 max-w-xl mx-auto">
-            <div 
-              ref={expandedRef}
-              className="relative"
-            >
+            <div ref={expandedRef} className="relative">
               <div 
                 className={`absolute inset-x-0 bg-muted/50 rounded-lg transition-all duration-300 ${
                   isExpanded ? 'h-[120px]' : 'h-[40px]'
