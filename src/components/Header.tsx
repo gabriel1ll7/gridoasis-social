@@ -52,22 +52,22 @@ export const Header = () => {
 
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <Button variant="ghost" size="icon" className="relative text-foreground h-14 w-14">
-            <MessageCircle className="h-12 w-12" />
+          <Button variant="ghost" size="icon" className="relative text-foreground">
+            <MessageCircle className="h-16 w-16" />
             <span className="absolute -top-1 -right-1 h-4 w-4 bg-social-accent text-white text-xs rounded-full flex items-center justify-center">
               2
             </span>
           </Button>
-          <Button variant="ghost" size="icon" className="relative text-foreground h-14 w-14">
-            <Bell className="h-12 w-12" />
+          <Button variant="ghost" size="icon" className="relative text-foreground">
+            <Bell className="h-16 w-16" />
             <span className="absolute -top-1 -right-1 h-4 w-4 bg-social-primary text-white text-xs rounded-full flex items-center justify-center">
               3
             </span>
           </Button>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-foreground h-14 w-14">
-                <User className="h-12 w-12" />
+              <Button variant="ghost" size="icon" className="text-foreground">
+                <User className="h-16 w-16" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48">
