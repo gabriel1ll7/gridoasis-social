@@ -1,4 +1,4 @@
-import { Bell, User, Image, Video, MessageCircleReply, Home, Settings, LogOut } from "lucide-react";
+import { Bell, User, Image, Video, MessageCircleReply, Home, Settings, LogOut, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -52,6 +52,12 @@ export const Header = () => {
 
         <div className="flex items-center gap-4">
           <ThemeToggle />
+          <Button variant="ghost" size="icon" className="relative text-foreground">
+            <MessageCircle className="h-5 w-5" />
+            <span className="absolute -top-1 -right-1 h-4 w-4 bg-social-accent text-white text-xs rounded-full flex items-center justify-center">
+              2
+            </span>
+          </Button>
           <Button variant="ghost" size="icon" className="relative text-foreground">
             <Bell className="h-5 w-5" />
             <span className="absolute -top-1 -right-1 h-4 w-4 bg-social-primary text-white text-xs rounded-full flex items-center justify-center">
