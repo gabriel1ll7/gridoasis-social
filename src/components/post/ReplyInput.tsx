@@ -5,6 +5,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Smile } from "lucide-react";
 import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react';
+import type { ReplyInputProps } from "@/types/post";
 
 /**
  * ReplyInput Component

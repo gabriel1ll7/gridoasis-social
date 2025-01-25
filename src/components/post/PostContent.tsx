@@ -3,6 +3,7 @@ import { ImageContent } from "./content/ImageContent";
 import { GalleryContent } from "./content/GalleryContent";
 import { VideoContent } from "./content/VideoContent";
 import { YoutubeContent } from "./content/YoutubeContent";
+import type { PostContentProps } from "@/types/post";
 
 /**
  * PostContent Component

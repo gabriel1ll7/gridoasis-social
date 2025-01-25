@@ -21,3 +21,17 @@ export interface Post {
   reactions?: string[];
   replies?: Reply[];
 }
+
+// Props interfaces for components
+export interface PostContentProps {
+  content: PostContent;
+}
+
+export interface PostReactionsProps {
+  reactions: string[];
+  likes?: number;
+}
+
+export interface ReplyInputProps {
+  onSubmit: (content: string) => void;
+}
