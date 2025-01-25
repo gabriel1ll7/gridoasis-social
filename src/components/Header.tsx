@@ -67,18 +67,18 @@ export const Header = () => {
             <DropdownMenuContent align="end" className="w-48">
               <DropdownMenuItem className="flex items-center gap-2 cursor-pointer">
                 <Home className="h-4 w-4" />
-                <span>🏠 Home</span>
+                <span>Home</span>
               </DropdownMenuItem>
               <DropdownMenuItem className="flex items-center gap-2 cursor-pointer">
                 <User className="h-4 w-4" />
-                <span>👤 Profile</span>
+                <span>Profile</span>
               </DropdownMenuItem>
               <DropdownMenuItem className="flex items-center gap-2 cursor-pointer">
-                <span>🤖 My Personas</span>
+                <span>My Personas</span>
               </DropdownMenuItem>
               <DropdownMenuItem className="flex items-center gap-2 cursor-pointer">
                 <Settings className="h-4 w-4" />
-                <span>⚙️ Settings</span>
+                <span>Settings</span>
               </DropdownMenuItem>
               <DropdownMenuItem className="flex items-center gap-2 cursor-pointer text-destructive">
                 <LogOut className="h-4 w-4" />
