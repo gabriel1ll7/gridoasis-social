@@ -4,12 +4,16 @@ import { Textarea } from "@/components/ui/textarea";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Smile } from "lucide-react";
 import data from '@emoji-mart/data'
-import Picker from '@emoji-mart/react'
+import Picker from '@emoji-mart/react';
 
-interface ReplyInputProps {
-  onSubmit: (content: string) => void;
-}
-
+/**
+ * ReplyInput Component
+ * 
+ * A form component for submitting replies to posts. Includes a textarea for
+ * the reply content and an emoji picker for adding emojis to the reply.
+ * 
+ * @param onSubmit - Callback function called when a reply is submitted
+ */
 export const ReplyInput = ({ onSubmit }: ReplyInputProps) => {
   const [content, setContent] = useState("");
 

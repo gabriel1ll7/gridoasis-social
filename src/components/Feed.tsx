@@ -3,6 +3,13 @@ import { ProfileCard } from "./ProfileCard";
 import mockPostsXml from "@/data/mockPosts.xml?raw";
 import { parsePostsXml } from "@/utils/xmlParser";
 
+/**
+ * Feed Component
+ * 
+ * The main feed container that displays posts in a masonry layout.
+ * Uses a multi-column layout that adapts to different screen sizes.
+ * Renders the ProfileCard at the top followed by PostCards in a masonry grid.
+ */
 export const Feed = () => {
   const posts = parsePostsXml(mockPostsXml);
 

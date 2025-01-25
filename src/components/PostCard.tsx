@@ -8,6 +8,15 @@ import { PostActions } from "./post/PostActions";
 import { ReplyInput } from "./post/ReplyInput";
 import type { Post, Reply } from "@/types/post";
 
+/**
+ * PostCard Component
+ * 
+ * A card component that displays a social media post with its content, reactions,
+ * and comments. It handles the state for showing/hiding comments and manages
+ * the reply functionality.
+ * 
+ * @param props Post - Contains all the post data including username, content, likes, etc.
+ */
 export const PostCard = ({ username, userImage, content, likes, comments, reactions = [], replies = [] }: Post) => {
   const [showComments, setShowComments] = useState(false);
   const [showReplyInput, setShowReplyInput] = useState(false);

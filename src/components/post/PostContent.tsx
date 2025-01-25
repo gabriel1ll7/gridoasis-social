@@ -4,16 +4,15 @@ import { GalleryContent } from "./content/GalleryContent";
 import { VideoContent } from "./content/VideoContent";
 import { YoutubeContent } from "./content/YoutubeContent";
 
-type PostContent = {
-  type: 'text' | 'image' | 'gallery' | 'video' | 'youtube';
-  content: string;
-  galleryImages?: string[];
-};
-
-interface PostContentProps {
-  content: PostContent;
-}
-
+/**
+ * PostContent Component
+ * 
+ * A wrapper component that renders different types of content (text, image, gallery,
+ * video, youtube) based on the content type provided. Acts as a switch to determine
+ * which content component to render.
+ * 
+ * @param content - Object containing the type and actual content to display
+ */
 export const PostContent = ({ content }: PostContentProps) => {
   switch (content.type) {
     case 'text':

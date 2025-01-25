@@ -1,10 +1,15 @@
 import { useState } from "react";
 
-interface PostReactionsProps {
-  reactions: string[];
-  likes: number;
-}
-
+/**
+ * PostReactions Component
+ * 
+ * Handles the display and interaction with post reactions (emojis).
+ * Manages local state for user reactions and reaction counts.
+ * Shows tooltips with reaction counts on hover.
+ * 
+ * @param reactions - Array of emoji reactions available for the post
+ * @param likes - Number of likes on the post
+ */
 export const PostReactions = ({ reactions }: PostReactionsProps) => {
   const [userReactions, setUserReactions] = useState<Record<string, boolean>>({});
   const [reactionCounts, setReactionCounts] = useState<Record<string, number>>(

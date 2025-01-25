@@ -7,6 +7,15 @@ interface PostCommentsProps {
   onReplyClick: () => void;
 }
 
+/**
+ * PostComments Component
+ * 
+ * Displays comments/replies for a post. Shows the first comment and indicates
+ * if there are more. Includes a button to add new replies.
+ * 
+ * @param replies - Array of Reply objects to display
+ * @param onReplyClick - Callback function when the reply button is clicked
+ */
 export const PostComments = ({ replies = [], onReplyClick }: PostCommentsProps) => {
   const hasMoreReplies = replies.length > 1;
   const visibleReplies = replies.slice(0, 1);

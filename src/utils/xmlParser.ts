@@ -1,5 +1,15 @@
 import { Post } from "@/types/post";
 
+/**
+ * XML Parser Utility
+ * 
+ * Parses the XML post data into Post objects that can be used by the application.
+ * Handles different types of content (text, image, gallery) and cleans the data
+ * before returning it.
+ * 
+ * @param xmlText - Raw XML string containing post data
+ * @returns Array of Post objects
+ */
 export const parsePostsXml = (xmlText: string): Post[] => {
   const parser = new DOMParser();
   const xmlDoc = parser.parseFromString(xmlText, "text/xml");
