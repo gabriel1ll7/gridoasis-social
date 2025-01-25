@@ -94,10 +94,10 @@ export const PostReactions = ({ reactions: initialReactions }: PostReactionsProp
         <PopoverTrigger asChild>
           <Button 
             variant="ghost" 
-            size="sm" 
-            className="ml-1 text-muted-foreground hover:bg-white/10"
+            size="icon"
+            className="h-5 w-5 p-0 ml-0.5 text-muted-foreground hover:bg-white/10"
           >
-            <Plus className="h-4 w-4" />
+            <Plus className="h-3 w-3" />
           </Button>
         </PopoverTrigger>
         <PopoverContent className="p-0 border-none" side="top">
