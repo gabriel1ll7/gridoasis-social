@@ -28,23 +28,23 @@ export const Header = () => {
               <Button 
                 variant="ghost" 
                 size="icon" 
-                className="h-10 w-10 text-social-primary hover:text-social-primary/90 hover:bg-white/10"
+                className="h-12 w-12 text-social-primary hover:text-social-primary/90 hover:bg-white/10"
               >
-                <Image className="h-9 w-9" />
+                <Image className="h-11 w-11" />
               </Button>
               <Button 
                 variant="ghost" 
                 size="icon" 
-                className="h-10 w-10 text-social-secondary hover:text-social-secondary/90 hover:bg-white/10"
+                className="h-12 w-12 text-social-secondary hover:text-social-secondary/90 hover:bg-white/10"
               >
-                <Video className="h-9 w-9" />
+                <Video className="h-11 w-11" />
               </Button>
               <Button 
                 variant="ghost" 
                 size="icon" 
-                className="h-10 w-10 text-social-accent hover:text-social-accent/90 hover:bg-white/10"
+                className="h-12 w-12 text-social-accent hover:text-social-accent/90 hover:bg-white/10"
               >
-                <MessageCircleReply className="h-9 w-9" />
+                <MessageCircleReply className="h-11 w-11" />
               </Button>
             </div>
           </div>
@@ -53,13 +53,13 @@ export const Header = () => {
         <div className="flex items-center gap-4">
           <ThemeToggle />
           <Button variant="ghost" size="icon" className="relative text-foreground">
-            <MessageCircle className="h-8 w-8" />
+            <MessageCircle className="h-10 w-10" />
             <span className="absolute -top-1 -right-1 h-4 w-4 bg-social-accent text-white text-xs rounded-full flex items-center justify-center">
               2
             </span>
           </Button>
           <Button variant="ghost" size="icon" className="relative text-foreground">
-            <Bell className="h-8 w-8" />
+            <Bell className="h-10 w-10" />
             <span className="absolute -top-1 -right-1 h-4 w-4 bg-social-primary text-white text-xs rounded-full flex items-center justify-center">
               3
             </span>
@@ -67,27 +67,27 @@ export const Header = () => {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" className="text-foreground">
-                <User className="h-8 w-8" />
+                <User className="h-10 w-10" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48">
               <DropdownMenuItem className="flex items-center gap-2 cursor-pointer">
-                <Home className="h-7 w-7" />
+                <Home className="h-8 w-8" />
                 <span>Home</span>
               </DropdownMenuItem>
               <DropdownMenuItem className="flex items-center gap-2 cursor-pointer">
-                <User className="h-7 w-7" />
+                <User className="h-8 w-8" />
                 <span>Profile</span>
               </DropdownMenuItem>
               <DropdownMenuItem className="flex items-center gap-2 cursor-pointer">
                 <span>My Personas</span>
               </DropdownMenuItem>
               <DropdownMenuItem className="flex items-center gap-2 cursor-pointer">
-                <Settings className="h-7 w-7" />
+                <Settings className="h-8 w-8" />
                 <span>Settings</span>
               </DropdownMenuItem>
               <DropdownMenuItem className="flex items-center gap-2 cursor-pointer text-destructive">
-                <LogOut className="h-7 w-7" />
+                <LogOut className="h-8 w-8" />
                 <span>Sign out</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
