@@ -26,20 +26,20 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md border-b z-50 transition-all duration-300">
-      <div className={`container mx-auto transition-all duration-300 ${isExpanded ? 'h-32' : 'h-16'}`}>
-        <div className="flex items-center h-16 px-4 gap-4">
+    <header className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md border-b z-50">
+      <div className="container mx-auto h-16">
+        <div className="flex items-center h-full px-4 gap-4">
           <div className="text-2xl font-bold bg-gradient-to-r from-social-primary to-social-secondary bg-clip-text text-transparent">
             Social
           </div>
           
-          <div className="flex-1 max-w-xl mx-4">
+          <div className="flex-1 max-w-xl mx-auto">
             <div 
               ref={expandedRef}
               className="relative"
             >
               <div 
-                className={`absolute top-0 left-0 right-0 bg-muted/50 rounded-lg transition-all duration-300 ${
+                className={`absolute inset-x-0 bg-muted/50 rounded-lg transition-all duration-300 ${
                   isExpanded ? 'h-[120px]' : 'h-[40px]'
                 }`}
                 onClick={() => !isExpanded && setIsExpanded(true)}
@@ -100,7 +100,7 @@ export const Header = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-4 ml-auto">
+          <div className="flex items-center gap-4">
             <ThemeToggle />
             <Button variant="ghost" size="icon" className="relative text-foreground">
               <MessageCircle className="h-5 w-5" />
