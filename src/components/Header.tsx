@@ -26,8 +26,8 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md border-b z-50">
-      <div className="container mx-auto h-20">
+    <header className="fixed top-0 left-0 right-0 bg-background border-b z-50">
+      <div className="container mx-auto h-24">
         <div className="flex items-center h-full px-4 gap-4">
           <div className="text-2xl font-bold bg-gradient-to-r from-social-primary to-social-secondary bg-clip-text text-transparent">
             Social
@@ -37,11 +37,11 @@ export const Header = () => {
             <div ref={expandedRef} className="relative">
               <div 
                 className={`absolute inset-x-0 bg-muted/50 rounded-lg transition-all duration-300 ${
-                  isExpanded ? 'h-[120px]' : 'h-[40px]'
+                  isExpanded ? 'h-[120px]' : 'h-[48px]'
                 }`}
                 onClick={() => !isExpanded && setIsExpanded(true)}
               >
-                <div className="flex items-center gap-3 px-4 py-1.5 h-[40px]">
+                <div className="flex items-center gap-3 px-4 py-2.5 h-[48px]">
                   <Avatar className="h-8 w-8">
                     <AvatarImage src="https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?&w=128&h=128&fit=crop" />
                     <AvatarFallback>CD</AvatarFallback>
@@ -125,9 +125,6 @@ export const Header = () => {
                 <DropdownMenuItem className="flex items-center gap-2 cursor-pointer">
                   <User className="h-4 w-4" />
                   <span>Profile</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="flex items-center gap-2 cursor-pointer">
-                  <span>My Personas</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="flex items-center gap-2 cursor-pointer">
                   <Settings className="h-4 w-4" />
