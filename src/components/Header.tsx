@@ -36,63 +36,67 @@ export const Header = () => {
           <div className="flex-1 max-w-lg mx-4">
             <div 
               ref={expandedRef}
-              className={`flex flex-col bg-muted/50 rounded-lg px-4 py-1.5 cursor-pointer hover:bg-muted/70 transition-all duration-300 ${
-                isExpanded ? 'h-[120px]' : ''
-              }`}
-              onClick={() => !isExpanded && setIsExpanded(true)}
+              className="relative"
             >
-              <div className="flex items-center gap-3">
-                <Avatar className="h-8 w-8">
-                  <AvatarImage src="https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?&w=128&h=128&fit=crop" />
-                  <AvatarFallback>CD</AvatarFallback>
-                </Avatar>
-                <span className="text-muted-foreground text-sm">Share your dreams...</span>
-              </div>
-              
-              {isExpanded && (
-                <div className="flex flex-col gap-4 mt-4 animate-fade-in">
-                  <textarea 
-                    className="w-full bg-transparent border-none focus:outline-none resize-none text-foreground"
-                    rows={3}
-                    placeholder="What's on your mind?"
-                    autoFocus
-                  />
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
+              <div 
+                className={`absolute top-0 left-0 right-0 flex flex-col bg-muted/50 rounded-lg px-4 py-1.5 cursor-pointer hover:bg-muted/70 transition-all duration-300 ${
+                  isExpanded ? 'h-[120px]' : 'h-[40px]'
+                }`}
+                onClick={() => !isExpanded && setIsExpanded(true)}
+              >
+                <div className="flex items-center gap-3">
+                  <Avatar className="h-8 w-8">
+                    <AvatarImage src="https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?&w=128&h=128&fit=crop" />
+                    <AvatarFallback>CD</AvatarFallback>
+                  </Avatar>
+                  <span className="text-muted-foreground text-sm">Share your dreams...</span>
+                </div>
+                
+                {isExpanded && (
+                  <div className="flex flex-col gap-4 mt-4 animate-fade-in">
+                    <textarea 
+                      className="w-full bg-transparent border-none focus:outline-none resize-none text-foreground"
+                      rows={3}
+                      placeholder="What's on your mind?"
+                      autoFocus
+                    />
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Button 
+                          variant="ghost" 
+                          size="icon" 
+                          className="h-9 w-9 text-social-primary hover:text-social-primary/90 hover:bg-white/10"
+                        >
+                          <Image className="h-6 w-6" />
+                        </Button>
+                        <Button 
+                          variant="ghost" 
+                          size="icon" 
+                          className="h-9 w-9 text-social-secondary hover:text-social-secondary/90 hover:bg-white/10"
+                        >
+                          <Video className="h-6 w-6" />
+                        </Button>
+                        <Button 
+                          variant="ghost" 
+                          size="icon" 
+                          className="h-9 w-9 text-social-accent hover:text-social-accent/90 hover:bg-white/10"
+                        >
+                          <MessageCircleReply className="h-6 w-6" />
+                        </Button>
+                      </div>
                       <Button 
-                        variant="ghost" 
-                        size="icon" 
-                        className="h-9 w-9 text-social-primary hover:text-social-primary/90 hover:bg-white/10"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setIsExpanded(false);
+                        }}
+                        className="bg-social-primary hover:bg-social-primary/90"
                       >
-                        <Image className="h-6 w-6" />
-                      </Button>
-                      <Button 
-                        variant="ghost" 
-                        size="icon" 
-                        className="h-9 w-9 text-social-secondary hover:text-social-secondary/90 hover:bg-white/10"
-                      >
-                        <Video className="h-6 w-6" />
-                      </Button>
-                      <Button 
-                        variant="ghost" 
-                        size="icon" 
-                        className="h-9 w-9 text-social-accent hover:text-social-accent/90 hover:bg-white/10"
-                      >
-                        <MessageCircleReply className="h-6 w-6" />
+                        Post
                       </Button>
                     </div>
-                    <Button 
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setIsExpanded(false);
-                      }}
-                      className="bg-social-primary hover:bg-social-primary/90"
-                    >
-                      Post
-                    </Button>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
 
