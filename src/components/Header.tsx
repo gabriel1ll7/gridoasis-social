@@ -30,21 +30,21 @@ export const Header = () => {
                 size="icon" 
                 className="h-10 w-10 text-social-primary hover:text-social-primary/90 hover:bg-white/10"
               >
-                <Image className="h-8 w-8" />
+                <Image className="h-9 w-9" />
               </Button>
               <Button 
                 variant="ghost" 
                 size="icon" 
                 className="h-10 w-10 text-social-secondary hover:text-social-secondary/90 hover:bg-white/10"
               >
-                <Video className="h-8 w-8" />
+                <Video className="h-9 w-9" />
               </Button>
               <Button 
                 variant="ghost" 
                 size="icon" 
                 className="h-10 w-10 text-social-accent hover:text-social-accent/90 hover:bg-white/10"
               >
-                <MessageCircleReply className="h-8 w-8" />
+                <MessageCircleReply className="h-9 w-9" />
               </Button>
             </div>
           </div>
@@ -53,13 +53,13 @@ export const Header = () => {
         <div className="flex items-center gap-4">
           <ThemeToggle />
           <Button variant="ghost" size="icon" className="relative text-foreground">
-            <MessageCircle className="h-7 w-7" />
+            <MessageCircle className="h-8 w-8" />
             <span className="absolute -top-1 -right-1 h-4 w-4 bg-social-accent text-white text-xs rounded-full flex items-center justify-center">
               2
             </span>
           </Button>
           <Button variant="ghost" size="icon" className="relative text-foreground">
-            <Bell className="h-7 w-7" />
+            <Bell className="h-8 w-8" />
             <span className="absolute -top-1 -right-1 h-4 w-4 bg-social-primary text-white text-xs rounded-full flex items-center justify-center">
               3
             </span>
@@ -67,27 +67,27 @@ export const Header = () => {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" className="text-foreground">
-                <User className="h-7 w-7" />
+                <User className="h-8 w-8" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48">
               <DropdownMenuItem className="flex items-center gap-2 cursor-pointer">
-                <Home className="h-6 w-6" />
+                <Home className="h-7 w-7" />
                 <span>Home</span>
               </DropdownMenuItem>
               <DropdownMenuItem className="flex items-center gap-2 cursor-pointer">
-                <User className="h-6 w-6" />
+                <User className="h-7 w-7" />
                 <span>Profile</span>
               </DropdownMenuItem>
               <DropdownMenuItem className="flex items-center gap-2 cursor-pointer">
                 <span>My Personas</span>
               </DropdownMenuItem>
               <DropdownMenuItem className="flex items-center gap-2 cursor-pointer">
-                <Settings className="h-6 w-6" />
+                <Settings className="h-7 w-7" />
                 <span>Settings</span>
               </DropdownMenuItem>
               <DropdownMenuItem className="flex items-center gap-2 cursor-pointer text-destructive">
-                <LogOut className="h-6 w-6" />
+                <LogOut className="h-7 w-7" />
                 <span>Sign out</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
