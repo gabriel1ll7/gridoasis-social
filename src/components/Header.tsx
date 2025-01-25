@@ -15,14 +15,14 @@ export const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md border-b z-50">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+      <div className={`container mx-auto px-4 transition-all duration-300 ${isExpanded ? 'h-32' : 'h-16'} flex items-start pt-3`}>
         <div className="text-2xl font-bold bg-gradient-to-r from-social-primary to-social-secondary bg-clip-text text-transparent">
           Social
         </div>
         
         <div className="flex-1 max-w-lg mx-4">
           <div 
-            className={`flex flex-col bg-muted/50 rounded-lg px-4 py-1.5 cursor-pointer hover:bg-muted/70 transition-all duration-200 ${
+            className={`flex flex-col bg-muted/50 rounded-lg px-4 py-1.5 cursor-pointer hover:bg-muted/70 transition-all duration-300 ${
               isExpanded ? 'min-h-[120px]' : ''
             }`}
             onClick={() => !isExpanded && setIsExpanded(true)}
@@ -36,7 +36,7 @@ export const Header = () => {
             </div>
             
             {isExpanded && (
-              <div className="flex flex-col gap-4 mt-4">
+              <div className="flex flex-col gap-4 mt-4 animate-fade-in">
                 <textarea 
                   className="w-full bg-transparent border-none focus:outline-none resize-none text-foreground"
                   rows={3}
