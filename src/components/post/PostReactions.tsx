@@ -1,4 +1,9 @@
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Plus } from "lucide-react";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import data from '@emoji-mart/data';
+import Picker from '@emoji-mart/react';
 import type { PostReactionsProps } from "@/types/post";
 
 /**
@@ -7,11 +12,13 @@ import type { PostReactionsProps } from "@/types/post";
  * Handles the display and interaction with post reactions (emojis).
  * Manages local state for user reactions and reaction counts.
  * Shows tooltips with reaction counts on hover.
+ * Allows users to add new emoji reactions through an emoji picker.
  * 
  * @param reactions - Array of emoji reactions available for the post
  * @param likes - Number of likes on the post
  */
-export const PostReactions = ({ reactions }: PostReactionsProps) => {
+export const PostReactions = ({ reactions: initialReactions }: PostReactionsProps) => {
+  const [reactions, setReactions] = useState(initialReactions);
   const [userReactions, setUserReactions] = useState<Record<string, boolean>>({});
   const [reactionCounts, setReactionCounts] = useState<Record<string, number>>(
     reactions.reduce((counts, emoji) => ({
@@ -31,6 +38,20 @@ export const PostReactions = ({ reactions }: PostReactionsProps) => {
       ...prev,
       [emoji]: prev[emoji] + (userReactions[emoji] ? -1 : 1),
     }));
+  };
+
+  const handleAddEmoji = (emoji: any) => {
+    if (!reactions.includes(emoji.native)) {
+      setReactions(prev => [...prev, emoji.native]);
+      setReactionCounts(prev => ({
+        ...prev,
+        [emoji.native]: 1,
+      }));
+      setUserReactions(prev => ({
+        ...prev,
+        [emoji.native]: true,
+      }));
+    }
   };
 
   // Always show exactly 5 emojis, pad with default emojis if needed
@@ -69,6 +90,24 @@ export const PostReactions = ({ reactions }: PostReactionsProps) => {
           </span>
         </button>
       )}
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className="ml-1 text-muted-foreground hover:bg-white/10"
+          >
+            <Plus className="h-4 w-4" />
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent className="p-0 border-none" side="top">
+          <Picker 
+            data={data} 
+            onEmojiSelect={handleAddEmoji}
+            theme="dark"
+          />
+        </PopoverContent>
+      </Popover>
     </div>
   );
 };
