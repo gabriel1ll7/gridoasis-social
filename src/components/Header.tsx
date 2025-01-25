@@ -2,7 +2,7 @@ import { Bell, User, Image, Video, MessageCircleReply, Home, Settings, LogOut, M
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,9 +12,21 @@ import {
 
 export const Header = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const expandedRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (expandedRef.current && !expandedRef.current.contains(event.target as Node)) {
+        setIsExpanded(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md border-b z-50">
+    <header className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md border-b z-50 transition-all duration-300">
       <div className={`container mx-auto transition-all duration-300 ${isExpanded ? 'h-32' : 'h-16'}`}>
         <div className="flex items-center justify-between h-16 px-4">
           <div className="text-2xl font-bold bg-gradient-to-r from-social-primary to-social-secondary bg-clip-text text-transparent">
@@ -23,8 +35,9 @@ export const Header = () => {
           
           <div className="flex-1 max-w-lg mx-4">
             <div 
+              ref={expandedRef}
               className={`flex flex-col bg-muted/50 rounded-lg px-4 py-1.5 cursor-pointer hover:bg-muted/70 transition-all duration-300 ${
-                isExpanded ? 'min-h-[120px]' : ''
+                isExpanded ? 'h-[120px]' : ''
               }`}
               onClick={() => !isExpanded && setIsExpanded(true)}
             >
@@ -83,7 +96,7 @@ export const Header = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 ml-auto">
             <ThemeToggle />
             <Button variant="ghost" size="icon" className="relative text-foreground">
               <MessageCircle className="h-5 w-5" />
