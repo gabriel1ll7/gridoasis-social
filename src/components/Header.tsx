@@ -28,23 +28,23 @@ export const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md border-b z-50 transition-all duration-300">
       <div className={`container mx-auto transition-all duration-300 ${isExpanded ? 'h-32' : 'h-16'}`}>
-        <div className="flex items-center justify-between h-16 px-4">
+        <div className="flex items-center h-16 px-4 gap-4">
           <div className="text-2xl font-bold bg-gradient-to-r from-social-primary to-social-secondary bg-clip-text text-transparent">
             Social
           </div>
           
-          <div className="flex-1 max-w-lg mx-4">
+          <div className="flex-1 max-w-xl mx-4">
             <div 
               ref={expandedRef}
               className="relative"
             >
               <div 
-                className={`absolute top-0 left-0 right-0 flex flex-col bg-muted/50 rounded-lg px-4 py-1.5 cursor-pointer hover:bg-muted/70 transition-all duration-300 ${
+                className={`absolute top-0 left-0 right-0 bg-muted/50 rounded-lg transition-all duration-300 ${
                   isExpanded ? 'h-[120px]' : 'h-[40px]'
                 }`}
                 onClick={() => !isExpanded && setIsExpanded(true)}
               >
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 px-4 py-1.5 h-[40px]">
                   <Avatar className="h-8 w-8">
                     <AvatarImage src="https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?&w=128&h=128&fit=crop" />
                     <AvatarFallback>CD</AvatarFallback>
@@ -53,10 +53,10 @@ export const Header = () => {
                 </div>
                 
                 {isExpanded && (
-                  <div className="flex flex-col gap-4 mt-4 animate-fade-in">
+                  <div className="flex flex-col gap-4 px-4 pt-2 animate-fade-in">
                     <textarea 
                       className="w-full bg-transparent border-none focus:outline-none resize-none text-foreground"
-                      rows={3}
+                      rows={2}
                       placeholder="What's on your mind?"
                       autoFocus
                     />
